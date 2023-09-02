@@ -51,7 +51,7 @@ public class FixtureService {
     }
 
     public List<Fixture> getFixturesByYearAndCompetitionAndStadiumAndTeam(String year, String competition, String stadium, String team) {
-        return fixtureRepository.findFixturesByYearAndCompetitionAndStadiumAndTeam(year, competition, stadium, team)
+        return fixtureRepository.findFixturesByYearAndCompetitionAndStadiumAndTeam(year, competition, stadium, team);
     }
 
     public List<Fixture> getFixturesByTeam(String team) {
@@ -91,7 +91,7 @@ public class FixtureService {
     }
 
     public List<Fixture> getFixturesByCompetitionAndStadiumAndTeam(String competition, String stadium, String team) {
-        return fixtureRepository.findFixturesByCompetitionAndStadiumAndTeam(competition, stadium, competition);
+        return fixtureRepository.findFixturesByCompetitionAndStadiumAndTeam(competition, stadium, team);
     }
 
     public List<Fixture> getFixturesByYearAndCompetitionAndStadium(String year, String competition, String stadium) {

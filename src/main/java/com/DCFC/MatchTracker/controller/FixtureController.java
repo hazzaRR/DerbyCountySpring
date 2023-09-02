@@ -25,18 +25,20 @@ public class FixtureController {
     }
 
 
-    @GetMapping("/")
-    public List<Fixture> getFixtures() {
-        return fixtureService.getFixtures();
-    }
+//    @GetMapping("/")
+//    public List<Fixture> getFixtures() {
+//        return fixtureService.getFixtures();
+//    }
 
-    @GetMapping(name = "/", params = {"year", "competition", "location", "team"})
+    @GetMapping(path = "/find")
     public List<Fixture> getFixtures(
-            @RequestParam(name = "year", required = false) String year,
-            @RequestParam(name = "competition", required = false) String competition,
-            @RequestParam(name = "stadium", required = false) String stadium,
-            @RequestParam(name = "team", required = false) String team
+            @RequestParam(required = false) String year,
+            @RequestParam(required = false) String competition,
+            @RequestParam(required = false) String stadium,
+            @RequestParam(required = false) String team
     ) {
+
+
 
         if (year != null && competition != null && stadium != null && team != null) {
             return fixtureService.getFixturesByYearAndCompetitionAndStadiumAndTeam(year, competition, stadium, team);

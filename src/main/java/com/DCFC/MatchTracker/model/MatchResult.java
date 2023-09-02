@@ -19,15 +19,36 @@ public class MatchResult extends Match {
     protected MatchResult() {
     }
 
-    public MatchResult(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL, Integer homeScore, Integer awayScore) {
-        super(matchId, homeTeam, awayTeam, kickoffDate, kickoffTime, competition, skySportsURL);
+    public MatchResult(Integer homeScore, Integer awayScore) {
         this.homeScore = homeScore;
         this.awayScore = awayScore;
     }
 
-    public MatchResult(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL, Integer homeScore, Integer awayScore) {
-        super(homeTeam, awayTeam, kickoffDate, kickoffTime, competition, skySportsURL);
+    public MatchResult(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL, Integer homeScore, Integer awayScore) {
+        super(matchId, homeTeam, awayTeam, kickoffDate, kickoffTime, competition, stadium, skySportsURL);
         this.homeScore = homeScore;
+        this.awayScore = awayScore;
+    }
+
+    public MatchResult(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL, Integer homeScore, Integer awayScore) {
+        super(homeTeam, awayTeam, kickoffDate, kickoffTime, competition, stadium, skySportsURL);
+        this.homeScore = homeScore;
+        this.awayScore = awayScore;
+    }
+
+    public Integer getHomeScore() {
+        return homeScore;
+    }
+
+    public void setHomeScore(Integer homeScore) {
+        this.homeScore = homeScore;
+    }
+
+    public Integer getAwayScore() {
+        return awayScore;
+    }
+
+    public void setAwayScore(Integer awayScore) {
         this.awayScore = awayScore;
     }
 }
