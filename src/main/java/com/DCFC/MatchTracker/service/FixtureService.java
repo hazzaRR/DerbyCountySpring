@@ -35,4 +35,8 @@ public class FixtureService {
 
         Fixture savedFixture = fixtureRepository.save(newFixture);
     }
+
+    public void deleteFixtures() {
+        fixtureRepository.deleteAll();
+    }
 }

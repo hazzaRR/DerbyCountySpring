@@ -26,7 +26,7 @@ public class FixtureController {
 
 
     @GetMapping("/all")
-    public List<Fixture> getFixtures() {
+    public List<Fixture> getAllFixtures() {
         return fixtureService.getFixtures();
     }
 
@@ -36,5 +36,10 @@ public class FixtureController {
 
         fixtureService.addFixture(fixture);
 
+    }
+
+    @DeleteMapping("/all")
+    public void deleteAllFixtures() {
+        fixtureService.deleteFixtures();
     }
 }
