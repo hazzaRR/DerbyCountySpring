@@ -53,4 +53,43 @@ public class FixtureService {
     public List<Fixture> getFixturesByYearAndCompetitionAndStadiumAndTeam(String year, String competition, String stadium, String team) {
         return new ArrayList<>();
     }
+
+    public List<Fixture> getFixturesByTeam(String team) {
+    }
+
+    public List<Fixture> getFixturesByStadium(String stadium) {
+    }
+
+    public List<Fixture> getFixturesByCompetition(String competition) {
+    }
+
+    public List<Fixture> getFixturesByStadiumAndTeam(String stadium, String team) {
+    }
+
+    public List<Fixture> getFixturesByCompetitionAndTeam(String competition, String team) {
+    }
+
+    public List<Fixture> getFixturesByCompetitionAndStadium(String competition, String stadium) {
+    }
+
+    public List<Fixture> getFixturesByYearAndTeam(String year, String team) {
+    }
+
+    public List<Fixture> getFixturesByYearAndStadium(String year, String stadium) {
+    }
+
+    public List<Fixture> getFixturesByYearAndCompetition(String year, String competition) {
+    }
+
+    public List<Fixture> getFixturesByCompetitionAndStadiumAndTeam(String competition, String competition1, String team) {
+    }
+
+    public List<Fixture> getFixturesByYearAndCompetitionAndStadium(String year, String competition, String stadium) {
+    }
+
+    public List<Fixture> getFixturesByYearAndCompetitionAndTeam(String year, String competition, String team) {
+    }
+
+    public List<Fixture> getFixturesByYearAndStadiumAndTeam(String year, String stadium, String team) {
+    }
 }
