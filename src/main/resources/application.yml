@@ -1,0 +1,18 @@
+spring:
+  datasoruce:
+    url: jdbc:postgresql://localhost:5432/derbycounty
+    username: postgres
+    password: Hhaarryy10
+
+  # Hibernate ddl auto (create, create-drop, validate, update)
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+server:
+  error:
+    include-message: always
