@@ -30,6 +30,9 @@ public abstract class Match {
     @Column(name = "competition")
     private String competition;
 
+    @Column(name = "stadium")
+    private String stadium;
+
     @Column(name = "sky_sports_url")
     private String skySportsURL;
 
@@ -37,22 +40,24 @@ public abstract class Match {
 
     }
 
-    public Match(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL) {
+    public Match(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL) {
         this.matchId = matchId;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.kickoffDate = kickoffDate;
         this.kickoffTime = kickoffTime;
         this.competition = competition;
+        this.stadium = stadium;
         this.skySportsURL = skySportsURL;
     }
 
-    public Match(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL) {
+    public Match(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.kickoffDate = kickoffDate;
         this.kickoffTime = kickoffTime;
         this.competition = competition;
+        this.stadium = stadium;
         this.skySportsURL = skySportsURL;
     }
 
@@ -102,6 +107,14 @@ public abstract class Match {
 
     public void setCompetition(String competition) {
         this.competition = competition;
+    }
+
+    public String getStadium() {
+        return stadium;
+    }
+
+    public void setStadium(String stadium) {
+        this.stadium = stadium;
     }
 
     public String getSkySportsURL() {

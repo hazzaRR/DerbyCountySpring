@@ -51,7 +51,7 @@ public class FixtureController {
             return fixtureService.getFixturesByYearAndStadiumAndTeam(year, stadium, team);
         }
         else if (competition != null && stadium != null && team != null) {
-            return fixtureService.getFixturesByCompetitionAndStadiumAndTeam(competition, competition, team);
+            return fixtureService.getFixturesByCompetitionAndStadiumAndTeam(competition, stadium, team);
         }
         else if (year != null && competition != null) {
             return fixtureService.getFixturesByYearAndCompetition(year, competition);

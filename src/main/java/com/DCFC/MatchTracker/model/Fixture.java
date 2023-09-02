@@ -16,11 +16,11 @@ public class Fixture extends Match {
     }
 
 
-    public Fixture(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL) {
-        super(matchId, homeTeam, awayTeam, kickoffDate, kickoffTime, competition, skySportsURL);
+    public Fixture(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL) {
+        super(matchId, homeTeam, awayTeam, kickoffDate, kickoffTime, competition, stadium, skySportsURL);
     }
 
-    public Fixture(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL) {
-        super(homeTeam, awayTeam, kickoffDate, kickoffTime, competition, skySportsURL);
+    public Fixture(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL) {
+        super(homeTeam, awayTeam, kickoffDate, kickoffTime, competition, stadium, skySportsURL);
     }
 }

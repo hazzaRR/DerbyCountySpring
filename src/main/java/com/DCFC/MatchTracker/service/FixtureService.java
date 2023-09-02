@@ -32,7 +32,7 @@ public class FixtureService {
                 = DateTimeFormatter.ISO_LOCAL_TIME;
 
         Fixture newFixture = new Fixture(fixture.getHomeTeam(), fixture.getAwayTeam(),
-                LocalDate.parse(fixture.getKickoffDate()), LocalTime.parse(fixture.getKickoffTime(), formatter), fixture.getCompetition(), fixture.getSkySportsURL());
+                LocalDate.parse(fixture.getKickoffDate()), LocalTime.parse(fixture.getKickoffTime(), formatter), fixture.getCompetition(), fixture.getStadium(), fixture.getSkySportsURL());
 
         Fixture savedFixture = fixtureRepository.save(newFixture);
     }
@@ -51,45 +51,58 @@ public class FixtureService {
     }
 
     public List<Fixture> getFixturesByYearAndCompetitionAndStadiumAndTeam(String year, String competition, String stadium, String team) {
-        return new ArrayList<>();
+        return fixtureRepository.findFixturesByYearAndCompetitionAndStadiumAndTeam(year, competition, stadium, team)
     }
 
     public List<Fixture> getFixturesByTeam(String team) {
+        return fixtureRepository.findFixturesByTeam(team);
     }
 
     public List<Fixture> getFixturesByStadium(String stadium) {
+        return fixtureRepository.findFixturesByStadium(stadium);
     }
 
     public List<Fixture> getFixturesByCompetition(String competition) {
+        return fixtureRepository.findFixturesByCompetition(competition);
     }
 
     public List<Fixture> getFixturesByStadiumAndTeam(String stadium, String team) {
+        return fixtureRepository.findFixturesByStadiumAndTeam(stadium, team);
     }
 
     public List<Fixture> getFixturesByCompetitionAndTeam(String competition, String team) {
+        return fixtureRepository.findFixturesByCompetitionAndTeam(competition, team);
     }
 
     public List<Fixture> getFixturesByCompetitionAndStadium(String competition, String stadium) {
+        return fixtureRepository.findFixturesByCompetitionAndStadium(competition, stadium);
     }
 
     public List<Fixture> getFixturesByYearAndTeam(String year, String team) {
+        return fixtureRepository.findFixturesByYearAndTeam(year, team);
     }
 
     public List<Fixture> getFixturesByYearAndStadium(String year, String stadium) {
+        return fixtureRepository.findFixturesByYearAndStadium(year, stadium);
     }
 
     public List<Fixture> getFixturesByYearAndCompetition(String year, String competition) {
+        return fixtureRepository.findFixturesByYearAndCompetition(year, competition);
     }
 
-    public List<Fixture> getFixturesByCompetitionAndStadiumAndTeam(String competition, String competition1, String team) {
+    public List<Fixture> getFixturesByCompetitionAndStadiumAndTeam(String competition, String stadium, String team) {
+        return fixtureRepository.findFixturesByCompetitionAndStadiumAndTeam(competition, stadium, competition);
     }
 
     public List<Fixture> getFixturesByYearAndCompetitionAndStadium(String year, String competition, String stadium) {
+        return fixtureRepository.findFixturesByYearAndCompetitionAndStadium(year, competition, stadium);
     }
 
     public List<Fixture> getFixturesByYearAndCompetitionAndTeam(String year, String competition, String team) {
+        return fixtureRepository.findFixturesByYearAndCompetitionAndTeam(year, competition, team);
     }
 
     public List<Fixture> getFixturesByYearAndStadiumAndTeam(String year, String stadium, String team) {
+        return fixtureRepository.findFixturesByYearAndStadiumAndTeam(year, stadium, team);
     }
 }
