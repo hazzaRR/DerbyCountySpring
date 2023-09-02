@@ -19,27 +19,47 @@ public class FixtureController {
         this.fixtureService = fixtureService;
     }
 
-    @GetMapping("/")
-    public String testEndpoint(){
+    @GetMapping("/test")
+    public String testEndpoint() {
         return "This is Derby County";
     }
 
 
-    @GetMapping("/all")
-    public List<Fixture> getAllFixtures() {
+    @GetMapping("/")
+    public List<Fixture> getFixtures() {
         return fixtureService.getFixtures();
     }
 
+    @GetMapping(name = "/", params = {"year", "competition", "location", "team"})
+    public List<Fixture> getFixtures(
+            @RequestParam(name = "year", required = false) String year,
+            @RequestParam(name = "competition", required = false) String competition,
+            @RequestParam(name = "stadium", required = false) String stadium,
+            @RequestParam(name = "team", required = false) String team
+    ) {
 
-    @PostMapping("/add")
-    public void addFixture(@RequestBody FixtureDTO fixture) {
+        if (year != null && competition != null && stadium != null && team != null) {
+            return fixtureService.getFixturesByYearAndCompetitionAndStadiumAndTeam(year, competition, stadium, team);
+        }
 
-        fixtureService.addFixture(fixture);
-
+        else {
+            return fixtureService.getFixturesByYear(year);
+        }
     }
 
-    @DeleteMapping("/all")
+    @DeleteMapping("/")
     public void deleteAllFixtures() {
         fixtureService.deleteFixtures();
     }
+
+    @DeleteMapping(path = "{fixtureId}")
+    public void deleteFixture(@PathVariable int fixtureId) {
+        fixtureService.deleteFixture(fixtureId);
+    }
+
+    @PostMapping("/")
+    public void addFixture(@RequestBody FixtureDTO fixture) {
+        fixtureService.addFixture(fixture);
+    }
 }
+

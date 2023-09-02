@@ -1,9 +1,6 @@
 package com.DCFC.MatchTracker.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -14,36 +11,48 @@ public abstract class Match {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer matchId;
 
+    @Column(name = "home_team")
     private String homeTeam;
 
+
+    @Column(name = "away_team")
     private String awayTeam;
 
+    @Column(name = "kickoff_date")
     private LocalDate kickoffDate;
 
+    @Column(name = "kickoff_time")
     private LocalTime kickoffTime;
 
+    @Column(name = "competition")
+    private String competition;
+
+    @Column(name = "sky_sports_url")
     private String skySportsURL;
 
     protected Match() {
 
     }
 
-    public Match(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String skySportsURL) {
+    public Match(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL) {
         this.matchId = matchId;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.kickoffDate = kickoffDate;
         this.kickoffTime = kickoffTime;
+        this.competition = competition;
         this.skySportsURL = skySportsURL;
     }
 
-    public Match(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String skySportsURL) {
+    public Match(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.kickoffDate = kickoffDate;
         this.kickoffTime = kickoffTime;
+        this.competition = competition;
         this.skySportsURL = skySportsURL;
     }
 
@@ -85,6 +94,14 @@ public abstract class Match {
 
     public void setKickoffTime(LocalTime kickoffTime) {
         this.kickoffTime = kickoffTime;
+    }
+
+    public String getCompetition() {
+        return competition;
+    }
+
+    public void setCompetition(String competition) {
+        this.competition = competition;
     }
 
     public String getSkySportsURL() {

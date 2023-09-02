@@ -19,14 +19,14 @@ public class MatchResult extends Match {
     protected MatchResult() {
     }
 
-    public MatchResult(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String skySportsURL, Integer homeScore, Integer awayScore) {
-        super(matchId, homeTeam, awayTeam, kickoffDate, kickoffTime, skySportsURL);
+    public MatchResult(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL, Integer homeScore, Integer awayScore) {
+        super(matchId, homeTeam, awayTeam, kickoffDate, kickoffTime, competition, skySportsURL);
         this.homeScore = homeScore;
         this.awayScore = awayScore;
     }
 
-    public MatchResult(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String skySportsURL, Integer homeScore, Integer awayScore) {
-        super(homeTeam, awayTeam, kickoffDate, kickoffTime, skySportsURL);
+    public MatchResult(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL, Integer homeScore, Integer awayScore) {
+        super(homeTeam, awayTeam, kickoffDate, kickoffTime, competition, skySportsURL);
         this.homeScore = homeScore;
         this.awayScore = awayScore;
     }

@@ -15,11 +15,12 @@ public class Fixture extends Match {
     protected Fixture() {
     }
 
-    public Fixture(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String skySportsURL) {
-        super(matchId, homeTeam, awayTeam, kickoffDate, kickoffTime, skySportsURL);
+
+    public Fixture(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL) {
+        super(matchId, homeTeam, awayTeam, kickoffDate, kickoffTime, competition, skySportsURL);
     }
 
-    public Fixture(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String skySportsURL) {
-        super(homeTeam, awayTeam, kickoffDate, kickoffTime, skySportsURL);
+    public Fixture(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String skySportsURL) {
+        super(homeTeam, awayTeam, kickoffDate, kickoffTime, competition, skySportsURL);
     }
 }
