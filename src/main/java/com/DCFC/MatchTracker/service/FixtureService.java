@@ -4,6 +4,7 @@ package com.DCFC.MatchTracker.service;
 import com.DCFC.MatchTracker.dto.FixtureDTO;
 import com.DCFC.MatchTracker.model.Fixture;
 import com.DCFC.MatchTracker.repository.FixtureRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class FixtureService {
@@ -104,5 +106,41 @@ public class FixtureService {
 
     public List<Fixture> getFixturesByYearAndStadiumAndTeam(String year, String stadium, String team) {
         return fixtureRepository.findFixturesByYearAndStadiumAndTeam(year, stadium, team);
+    }
+
+    @Transactional
+    public void updateFixture(int id, String homeTeam, String awayTeam, String kickoffDate, String kickoffTime, String competition, String stadium, String skySportsURL) {
+
+        Fixture fixture = fixtureRepository.findById(id).orElseThrow(() -> new IllegalStateException(
+                "Fixture with id " + id + " does not exist"
+        ));
+
+        if(homeTeam != null && homeTeam.length() > 0 && !Objects.equals(fixture.getHomeTeam(), awayTeam)) {
+            fixture.setHomeTeam(homeTeam);
+        }
+
+        if (awayTeam != null && awayTeam.length() > 0 && !Objects.equals(fixture.getAwayTeam(), awayTeam)) {
+            fixture.setAwayTeam(awayTeam);
+        }
+
+        if (kickoffDate != null && kickoffDate.length() > 0 && !Objects.equals(fixture.getKickoffDate(), LocalDate.parse(kickoffDate))) {
+            fixture.setKickoffDate(LocalDate.parse(kickoffDate));
+        }
+
+        if (kickoffTime != null && kickoffTime.length() > 0 && !Objects.equals(fixture.getKickoffTime(), LocalTime.parse(kickoffTime))) {
+            fixture.setKickoffTime(LocalTime.parse(kickoffTime));
+        }
+
+        if (competition != null && competition.length() > 0 && !Objects.equals(fixture.getCompetition(), competition)) {
+            fixture.setCompetition(competition);
+        }
+
+        if (stadium != null && stadium.length() > 0 && !Objects.equals(fixture.getStadium(), stadium)) {
+            fixture.setStadium(stadium);
+        }
+        if (skySportsURL != null && skySportsURL.length() > 0 && !Objects.equals(fixture.getSkySportsURL(), skySportsURL)) {
+            fixture.setSkySportsURL(skySportsURL);
+        }
+
     }
 }
