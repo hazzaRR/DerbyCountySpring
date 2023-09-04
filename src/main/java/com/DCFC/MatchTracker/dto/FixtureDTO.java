@@ -10,10 +10,7 @@ public class FixtureDTO {
     private String awayTeam;
 
 
-    private String kickoffDate;
-
-    private String kickoffTime;
-
+    private String kickoff;
 
     private String competition;
 
@@ -24,11 +21,10 @@ public class FixtureDTO {
     public FixtureDTO() {
     }
 
-    public FixtureDTO(String homeTeam, String awayTeam, String kickoffDate, String kickoffTime, String competition, String stadium, String skySportsURL) {
+    public FixtureDTO(String homeTeam, String awayTeam, String kickoff, String competition, String stadium, String skySportsURL) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        this.kickoffDate = kickoffDate;
-        this.kickoffTime = kickoffTime;
+        this.kickoff = kickoff;
         this.competition = competition;
         this.stadium = stadium;
         this.skySportsURL = skySportsURL;
@@ -50,20 +46,12 @@ public class FixtureDTO {
         this.awayTeam = awayTeam;
     }
 
-    public String getKickoffDate() {
-        return kickoffDate;
+    public String getKickoff() {
+        return kickoff;
     }
 
-    public void setKickoffDate(String kickoffDate) {
-        this.kickoffDate = kickoffDate;
-    }
-
-    public String getKickoffTime() {
-        return kickoffTime;
-    }
-
-    public void setKickoffTime(String kickoffTime) {
-        this.kickoffTime = kickoffTime;
+    public void setKickoff(String kickoff) {
+        this.kickoff = kickoff;
     }
 
     public String getCompetition() {

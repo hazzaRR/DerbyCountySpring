@@ -107,10 +107,10 @@ public class FixtureController {
 
     @PutMapping(path="{fixtureId}")
     public void updateFixture(@PathVariable("fixtureId") int id, @RequestParam(required = false) String homeTeam,
-                              @RequestParam(required = false) String awayTeam, @RequestParam(required = false) String kickoffDate,
-                              @RequestParam(required = false) String kickoffTime, @RequestParam(required = false) String competition,
-                              @RequestParam(required = false) String stadium, @RequestParam(required = false) String skySportsURL) {
-        fixtureService.updateFixture(id, homeTeam, awayTeam,kickoffDate, kickoffTime, competition, stadium, skySportsURL);
+                              @RequestParam(required = false) String awayTeam, @RequestParam(required = false) String kickoff,
+                              @RequestParam(required = false) String competition, @RequestParam(required = false) String stadium,
+                              @RequestParam(required = false) String skySportsURL) {
+        fixtureService.updateFixture(id, homeTeam, awayTeam, kickoff, competition, stadium, skySportsURL);
     }
 }
 

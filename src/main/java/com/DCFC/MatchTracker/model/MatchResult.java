@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 
@@ -19,19 +20,14 @@ public class MatchResult extends Match {
     protected MatchResult() {
     }
 
-    public MatchResult(Integer homeScore, Integer awayScore) {
+    public MatchResult(Integer matchId, String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, String skySportsURL, Integer homeScore, Integer awayScore) {
+        super(matchId, homeTeam, awayTeam, kickoff, competition, stadium, skySportsURL);
         this.homeScore = homeScore;
         this.awayScore = awayScore;
     }
 
-    public MatchResult(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL, Integer homeScore, Integer awayScore) {
-        super(matchId, homeTeam, awayTeam, kickoffDate, kickoffTime, competition, stadium, skySportsURL);
-        this.homeScore = homeScore;
-        this.awayScore = awayScore;
-    }
-
-    public MatchResult(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL, Integer homeScore, Integer awayScore) {
-        super(homeTeam, awayTeam, kickoffDate, kickoffTime, competition, stadium, skySportsURL);
+    public MatchResult(String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, String skySportsURL, Integer homeScore, Integer awayScore) {
+        super(homeTeam, awayTeam, kickoff, competition, stadium, skySportsURL);
         this.homeScore = homeScore;
         this.awayScore = awayScore;
     }

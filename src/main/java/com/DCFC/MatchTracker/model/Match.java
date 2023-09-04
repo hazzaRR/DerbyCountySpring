@@ -2,8 +2,7 @@ package com.DCFC.MatchTracker.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 @MappedSuperclass
 public abstract class Match {
@@ -21,11 +20,8 @@ public abstract class Match {
     @Column(name = "away_team")
     private String awayTeam;
 
-    @Column(name = "kickoff_date")
-    private LocalDate kickoffDate;
-
-    @Column(name = "kickoff_time")
-    private LocalTime kickoffTime;
+    @Column(name = "kickoff")
+    private LocalDateTime kickoff;
 
     @Column(name = "competition")
     private String competition;
@@ -40,22 +36,19 @@ public abstract class Match {
 
     }
 
-    public Match(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL) {
+    public Match(Integer matchId, String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, String skySportsURL) {
         this.matchId = matchId;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        this.kickoffDate = kickoffDate;
-        this.kickoffTime = kickoffTime;
+        this.kickoff = kickoff;
         this.competition = competition;
         this.stadium = stadium;
         this.skySportsURL = skySportsURL;
     }
 
-    public Match(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL) {
+    public Match(String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, String skySportsURL) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        this.kickoffDate = kickoffDate;
-        this.kickoffTime = kickoffTime;
         this.competition = competition;
         this.stadium = stadium;
         this.skySportsURL = skySportsURL;
@@ -85,20 +78,12 @@ public abstract class Match {
         this.awayTeam = awayTeam;
     }
 
-    public LocalDate getKickoffDate() {
-        return kickoffDate;
+    public LocalDateTime getKickoff() {
+        return kickoff;
     }
 
-    public void setKickoffDate(LocalDate kickoffDate) {
-        this.kickoffDate = kickoffDate;
-    }
-
-    public LocalTime getKickoffTime() {
-        return kickoffTime;
-    }
-
-    public void setKickoffTime(LocalTime kickoffTime) {
-        this.kickoffTime = kickoffTime;
+    public void setKickoff(LocalDateTime kickoff) {
+        this.kickoff = kickoff;
     }
 
     public String getCompetition() {
@@ -131,8 +116,7 @@ public abstract class Match {
                 "matchId=" + matchId +
                 ", homeTeam='" + homeTeam + '\'' +
                 ", awayTeam='" + awayTeam + '\'' +
-                ", kickoffDate=" + kickoffDate +
-                ", kickoffTime=" + kickoffTime +
+                ", kickoffDate=" + kickoff +
                 ", skySportsURL='" + skySportsURL + '\'' +
                 '}';
     }

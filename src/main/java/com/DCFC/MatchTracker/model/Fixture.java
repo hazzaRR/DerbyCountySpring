@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 
@@ -16,11 +17,11 @@ public class Fixture extends Match {
     }
 
 
-    public Fixture(Integer matchId, String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL) {
-        super(matchId, homeTeam, awayTeam, kickoffDate, kickoffTime, competition, stadium, skySportsURL);
+    public Fixture(Integer matchId, String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, String skySportsURL) {
+        super(matchId, homeTeam, awayTeam, kickoff, competition, stadium, skySportsURL);
     }
 
-    public Fixture(String homeTeam, String awayTeam, LocalDate kickoffDate, LocalTime kickoffTime, String competition, String stadium, String skySportsURL) {
-        super(homeTeam, awayTeam, kickoffDate, kickoffTime, competition, stadium, skySportsURL);
+    public Fixture(String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, String skySportsURL) {
+        super(homeTeam, awayTeam, kickoff, competition, stadium, skySportsURL);
     }
 }

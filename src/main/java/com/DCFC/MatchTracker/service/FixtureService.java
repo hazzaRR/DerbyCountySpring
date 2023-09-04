@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -30,11 +31,8 @@ public class FixtureService {
 
     public void addFixture(FixtureDTO fixture) {
 
-        DateTimeFormatter formatter
-                = DateTimeFormatter.ISO_LOCAL_TIME;
-
         Fixture newFixture = new Fixture(fixture.getHomeTeam(), fixture.getAwayTeam(),
-                LocalDate.parse(fixture.getKickoffDate()), LocalTime.parse(fixture.getKickoffTime(), formatter), fixture.getCompetition(), fixture.getStadium(), fixture.getSkySportsURL());
+                LocalDateTime.parse(fixture.getKickoff()), fixture.getCompetition(), fixture.getStadium(), fixture.getSkySportsURL());
 
         Fixture savedFixture = fixtureRepository.save(newFixture);
     }
@@ -109,7 +107,7 @@ public class FixtureService {
     }
 
     @Transactional
-    public void updateFixture(int id, String homeTeam, String awayTeam, String kickoffDate, String kickoffTime, String competition, String stadium, String skySportsURL) {
+    public void updateFixture(int id, String homeTeam, String awayTeam, String kickoff, String competition, String stadium, String skySportsURL) {
 
         Fixture fixture = fixtureRepository.findById(id).orElseThrow(() -> new IllegalStateException(
                 "Fixture with id " + id + " does not exist"
@@ -123,13 +121,10 @@ public class FixtureService {
             fixture.setAwayTeam(awayTeam);
         }
 
-        if (kickoffDate != null && kickoffDate.length() > 0 && !Objects.equals(fixture.getKickoffDate(), LocalDate.parse(kickoffDate))) {
-            fixture.setKickoffDate(LocalDate.parse(kickoffDate));
+        if (kickoff != null && kickoff.length() > 0 && !Objects.equals(fixture.getKickoff(), LocalDateTime.parse(kickoff))) {
+            fixture.setKickoff(LocalDateTime.parse(kickoff));
         }
 
-        if (kickoffTime != null && kickoffTime.length() > 0 && !Objects.equals(fixture.getKickoffTime(), LocalTime.parse(kickoffTime))) {
-            fixture.setKickoffTime(LocalTime.parse(kickoffTime));
-        }
 
         if (competition != null && competition.length() > 0 && !Objects.equals(fixture.getCompetition(), competition)) {
             fixture.setCompetition(competition);
