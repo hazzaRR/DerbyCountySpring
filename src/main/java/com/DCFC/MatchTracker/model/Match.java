@@ -49,6 +49,7 @@ public abstract class Match {
     public Match(String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, String skySportsURL) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
+        this.kickoff = kickoff;
         this.competition = competition;
         this.stadium = stadium;
         this.skySportsURL = skySportsURL;

@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -31,10 +32,21 @@ public class FixtureService {
 
     public void addFixture(FixtureDTO fixture) {
 
-        Fixture newFixture = new Fixture(fixture.getHomeTeam(), fixture.getAwayTeam(),
-                LocalDateTime.parse(fixture.getKickoff()), fixture.getCompetition(), fixture.getStadium(), fixture.getSkySportsURL());
+        System.out.println(fixture.getKickoff());
 
-        Fixture savedFixture = fixtureRepository.save(newFixture);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        try {
+
+            Fixture newFixture = new Fixture(fixture.getHomeTeam(), fixture.getAwayTeam(),
+                    LocalDateTime.parse(fixture.getKickoff(), formatter), fixture.getCompetition(), fixture.getStadium(), fixture.getSkySportsURL());
+
+            Fixture savedFixture = fixtureRepository.save(newFixture);
+
+        } catch (DateTimeParseException e) {
+            System.err.println("Error parsing the date-time string: " + e.getMessage());
+        }
+
     }
 
     public void deleteFixtures() {

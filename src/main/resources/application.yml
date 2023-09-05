@@ -3,6 +3,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/derbycounty
     username: postgres
     password: Hhaarryy10
+    driverClassName: org.postgresql.Driver
 
   # Hibernate ddl auto (create, create-drop, validate, update)
   jpa:
