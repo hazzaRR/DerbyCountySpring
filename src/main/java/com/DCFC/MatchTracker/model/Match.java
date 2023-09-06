@@ -9,7 +9,7 @@ public abstract class Match {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer matchId;
 
@@ -29,30 +29,25 @@ public abstract class Match {
     @Column(name = "stadium")
     private String stadium;
 
-    @Column(name = "sky_sports_url")
-    private String skySportsURL;
-
     protected Match() {
 
     }
 
-    public Match(Integer matchId, String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, String skySportsURL) {
+    public Match(Integer matchId, String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium) {
         this.matchId = matchId;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.kickoff = kickoff;
         this.competition = competition;
         this.stadium = stadium;
-        this.skySportsURL = skySportsURL;
     }
 
-    public Match(String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, String skySportsURL) {
+    public Match(String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.kickoff = kickoff;
         this.competition = competition;
         this.stadium = stadium;
-        this.skySportsURL = skySportsURL;
     }
 
     public Integer getMatchId() {
@@ -103,14 +98,6 @@ public abstract class Match {
         this.stadium = stadium;
     }
 
-    public String getSkySportsURL() {
-        return skySportsURL;
-    }
-
-    public void setSkySportsURL(String skySportsURL) {
-        this.skySportsURL = skySportsURL;
-    }
-
     @Override
     public String toString() {
         return "Match{" +
@@ -118,7 +105,6 @@ public abstract class Match {
                 ", homeTeam='" + homeTeam + '\'' +
                 ", awayTeam='" + awayTeam + '\'' +
                 ", kickoffDate=" + kickoff +
-                ", skySportsURL='" + skySportsURL + '\'' +
                 '}';
     }
 }
