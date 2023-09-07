@@ -18,7 +18,7 @@ public class MatchResultController {
         this.matchResultService = matchResultService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/find")
 public List<MatchResult> getMatchResults(@RequestParam(required = false) String season, @RequestParam(required = false) String competition,
                                          @RequestParam(required = false) String stadium, @RequestParam(required = false) String team,
                                          @RequestParam(required = false) String result) {

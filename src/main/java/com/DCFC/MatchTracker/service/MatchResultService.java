@@ -33,56 +33,74 @@ public class MatchResultService {
     }
 
     public List<MatchResult> getMatchResultsBySeasonCompetitionStadiumTeamResult(String season, String competition, String stadium, String team, String result) {
+        return matchResultRepository.findBySeasonCompetitionStadiumTeamResult(season,competition, stadium, team, result);
     }
 
     public List<MatchResult> getMatchResultsBySeasonCompetitionStadiumTeam(String season, String competition, String stadium, String team) {
+        return matchResultRepository.findBySeasonCompetitionStadiumTeam(season,competition, stadium, team);
     }
 
     public List<MatchResult> getMatchResultsBySeasonCompetitionStadium(String season, String competition, String stadium) {
+        return matchResultRepository.findBySeasonCompetitionStadium(season,competition, stadium);
     }
 
     public List<MatchResult> getMatchResultsBySeasonCompetitionTeam(String season, String competition, String team) {
+        return matchResultRepository.findBySeasonCompetitionTeam(season,competition, team);
     }
 
     public List<MatchResult> getMatchResultsBySeasonStadiumTeam(String season, String stadium, String team) {
+        return matchResultRepository.findBySeasonStadiumTeam(season,stadium, team);
     }
 
     public List<MatchResult> getMatchResultsByCompetitionStadiumTeam(String competition, String stadium, String team) {
+        return matchResultRepository.findByCompetitionStadiumTeam(competition,stadium, team);
     }
 
     public List<MatchResult> getMatchResultsBySeasonCompetition(String season, String competition) {
+        return matchResultRepository.findBySeasonCompetition(season,competition);
     }
 
     public List<MatchResult> getMatchResultsBySeasonStadium(String season, String stadium) {
+        return matchResultRepository.findBySeasonStadium(season,stadium);
     }
 
     public List<MatchResult> getMatchResultsBySeasonTeam(String season, String team) {
+        return matchResultRepository.findBySeasonTeam(season,team);
     }
 
     public List<MatchResult> getMatchResultsByCompetitionStadium(String competition, String stadium) {
+        return matchResultRepository.findByCompetitionStadium(competition,stadium);
     }
 
     public List<MatchResult> getMatchResultsByCompetitionTeam(String competition, String team) {
+        return matchResultRepository.findByCompetitionTeam(competition,team);
     }
 
     public List<MatchResult> getMatchResultsByStadiumTeam(String stadium, String team) {
+        return matchResultRepository.findByStadiumTeam(stadium,team);
     }
 
     public List<MatchResult> getMatchResultsBySeason(String season) {
+        return matchResultRepository.findBySeason(season);
     }
 
     public List<MatchResult> getMatchResultsByCompetition(String competition) {
+        return matchResultRepository.findByCompetition(competition);
     }
 
     public List<MatchResult> getMatchResultsByStadium(String stadium) {
+        return matchResultRepository.findByStadium(stadium);
     }
 
     public List<MatchResult> getMatchResultsByTeam(String team) {
+        return matchResultRepository.findByTeam(team);
     }
 
     public List<MatchResult> getMatchResultsByResult(String result) {
+        return matchResultRepository.findByResult(result);
     }
 
     public List<MatchResult> getAllMatchResults() {
+        return matchResultRepository.findAll();
     }
 }
