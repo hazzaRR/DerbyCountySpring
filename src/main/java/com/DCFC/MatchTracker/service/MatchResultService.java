@@ -103,4 +103,8 @@ public class MatchResultService {
     public List<MatchResult> getAllMatchResults() {
         return matchResultRepository.findAll();
     }
+
+    public List<String> findTeamsPlayedAgainst() {
+        return matchResultRepository.findTeamsPlayedAgainst();
+    }
 }

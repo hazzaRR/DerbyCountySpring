@@ -63,6 +63,11 @@ public List<MatchResult> getMatchResults(@RequestParam(required = false) String 
 
     }
 
+    @GetMapping("/allTeams")
+    List<String> teamsPlayedAgainst() {
+        return matchResultService.findTeamsPlayedAgainst();
+    }
+
     @PostMapping("/")
     public void addMatchResult(@RequestBody MatchResultDTO matchResult) {
 

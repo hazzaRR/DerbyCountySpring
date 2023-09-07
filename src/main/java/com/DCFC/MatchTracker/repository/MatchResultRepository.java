@@ -7,6 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface MatchResultRepository extends JpaRepository<MatchResult, Integer> {
+
+    @Query(value = "SELECT DISTINCT(home_team) as team\n" +
+            "FROM match_results \n" +
+            "WHERE home_team != 'Derby County'\n" +
+            "UNION \n" +
+            "SELECT away_team as team \n" +
+            "FROM match_results \n" +
+            "WHERE away_team <> 'Derby County' \n" +
+            "ORDER BY team ASC;", nativeQuery = true)
+    List<String> findTeamsPlayedAgainst();
     List<MatchResult> findByResult(String result);
 
     @Query(value = "SELECT * FROM match_results WHERE home_team = ?1 OR away_team = ?1", nativeQuery = true)
