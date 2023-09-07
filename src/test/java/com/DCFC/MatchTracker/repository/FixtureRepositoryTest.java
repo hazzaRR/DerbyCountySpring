@@ -9,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -82,7 +81,7 @@ public class FixtureRepositoryTest {
         underTest.saveAll(fixtures);
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndCompetitionAndStadiumAndTeam("2023", "Championship", "Pride Park Stadium", "Nottingham Forest");
+        List<Fixture> result = underTest.findFixturesByYearCompetitionStadiumTeam("2023", "Championship", "Pride Park Stadium", "Nottingham Forest");
 
         //then
         assertThat(result).contains(fixture1);
@@ -100,7 +99,7 @@ public class FixtureRepositoryTest {
 
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndCompetitionAndStadiumAndTeam("2023", "Championship", "Pride Park Stadium", "Nottingham Forest");
+        List<Fixture> result = underTest.findFixturesByYearCompetitionStadiumTeam("2023", "Championship", "Pride Park Stadium", "Nottingham Forest");
 
         //then
         assertThat(result).isEmpty();
@@ -262,7 +261,7 @@ public class FixtureRepositoryTest {
         underTest.saveAll(fixtures);
         //when
 
-        List<Fixture> result = underTest.findFixturesByStadiumAndTeam("Pride Park Stadium", "Nottingham Forest");
+        List<Fixture> result = underTest.findFixturesByStadiumTeam("Pride Park Stadium", "Nottingham Forest");
 
         //then
         assertThat(result).contains(fixture1);
@@ -285,7 +284,7 @@ public class FixtureRepositoryTest {
 
         //when
 
-        List<Fixture> result = underTest.findFixturesByStadiumAndTeam("Pride Park Stadium", "Nottingham Forest");
+        List<Fixture> result = underTest.findFixturesByStadiumTeam("Pride Park Stadium", "Nottingham Forest");
 
         //then
         assertThat(result).isEmpty();
@@ -307,7 +306,7 @@ public class FixtureRepositoryTest {
         underTest.saveAll(fixtures);
         //when
 
-        List<Fixture> result = underTest.findFixturesByCompetitionAndTeam("Championship", "Norwich City");
+        List<Fixture> result = underTest.findFixturesByCompetitionTeam("Championship", "Norwich City");
 
         //then
         assertThat(result).contains(fixture2);
@@ -329,7 +328,7 @@ public class FixtureRepositoryTest {
 
         //when
 
-        List<Fixture> result = underTest.findFixturesByCompetitionAndTeam("Championship", "Norwich City");
+        List<Fixture> result = underTest.findFixturesByCompetitionTeam("Championship", "Norwich City");
 
         //then
         assertThat(result).isEmpty();
@@ -351,7 +350,7 @@ public class FixtureRepositoryTest {
         underTest.saveAll(fixtures);
         //when
 
-        List<Fixture> result = underTest.findFixturesByCompetitionAndStadium("Championship", "Pride Park Stadium");
+        List<Fixture> result = underTest.findFixturesByCompetitionStadium("Championship", "Pride Park Stadium");
 
         //then
         assertThat(result).contains(fixture1);
@@ -373,7 +372,7 @@ public class FixtureRepositoryTest {
 
         //when
 
-        List<Fixture> result = underTest.findFixturesByCompetitionAndStadium("Championship", "Pride Park Stadium");
+        List<Fixture> result = underTest.findFixturesByCompetitionStadium("Championship", "Pride Park Stadium");
 
         //then
         assertThat(result).isEmpty();
@@ -395,7 +394,7 @@ public class FixtureRepositoryTest {
         underTest.saveAll(fixtures);
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndTeam("2023", "Nottingham Forest");
+        List<Fixture> result = underTest.findFixturesByYearTeam("2023", "Nottingham Forest");
 
         //then
         assertThat(result).contains(fixture1);
@@ -417,7 +416,7 @@ public class FixtureRepositoryTest {
 
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndTeam("2023", "Nottingham Forest");
+        List<Fixture> result = underTest.findFixturesByYearTeam("2023", "Nottingham Forest");
 
         //then
         assertThat(result).isEmpty();
@@ -439,7 +438,7 @@ public class FixtureRepositoryTest {
         underTest.saveAll(fixtures);
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndStadium("2023", "Carrow Road");
+        List<Fixture> result = underTest.findFixturesByYearStadium("2023", "Carrow Road");
 
         //then
         assertThat(result).contains(fixture2);
@@ -461,7 +460,7 @@ public class FixtureRepositoryTest {
 
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndStadium("2023", "Pride Park Stadium");
+        List<Fixture> result = underTest.findFixturesByYearStadium("2023", "Pride Park Stadium");
 
         //then
         assertThat(result).isEmpty();
@@ -483,7 +482,7 @@ public class FixtureRepositoryTest {
         underTest.saveAll(fixtures);
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndCompetition("2023", "Championship");
+        List<Fixture> result = underTest.findFixturesByYearCompetition("2023", "Championship");
 
         //then
         assertThat(result).containsAll(fixtures);
@@ -504,7 +503,7 @@ public class FixtureRepositoryTest {
 
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndCompetition("2023", "Championship");
+        List<Fixture> result = underTest.findFixturesByYearCompetition("2023", "Championship");
 
         //then
         assertThat(result).isEmpty();
@@ -526,7 +525,7 @@ public class FixtureRepositoryTest {
         underTest.saveAll(fixtures);
         //when
 
-        List<Fixture> result = underTest.findFixturesByCompetitionAndStadiumAndTeam("Championship", "Carrow Road", "Norwich City");
+        List<Fixture> result = underTest.findFixturesByCompetitionStadiumTeam("Championship", "Carrow Road", "Norwich City");
 
         //then
         assertThat(result).contains(fixture2);
@@ -548,7 +547,7 @@ public class FixtureRepositoryTest {
 
         //when
 
-        List<Fixture> result = underTest.findFixturesByCompetitionAndStadiumAndTeam("Championship", "Carrow Road", "Norwich City");
+        List<Fixture> result = underTest.findFixturesByCompetitionStadiumTeam("Championship", "Carrow Road", "Norwich City");
 
         //then
         assertThat(result).isEmpty();
@@ -570,7 +569,7 @@ public class FixtureRepositoryTest {
         underTest.saveAll(fixtures);
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndCompetitionAndStadium("2023", "Championship", "Carrow Road");
+        List<Fixture> result = underTest.findFixturesByYearCompetitionStadium("2023", "Championship", "Carrow Road");
 
         //then
         assertThat(result).contains(fixture2);
@@ -592,7 +591,7 @@ public class FixtureRepositoryTest {
 
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndCompetitionAndStadium("2023", "Championship", "Carrow Road");
+        List<Fixture> result = underTest.findFixturesByYearCompetitionStadium("2023", "Championship", "Carrow Road");
 
         //then
         assertThat(result).isEmpty();
@@ -614,7 +613,7 @@ public class FixtureRepositoryTest {
         underTest.saveAll(fixtures);
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndCompetitionAndTeam("2023", "Championship", "Norwich City");
+        List<Fixture> result = underTest.findFixturesByYearCompetitionTeam("2023", "Championship", "Norwich City");
 
         //then
         assertThat(result).contains(fixture2);
@@ -636,7 +635,7 @@ public class FixtureRepositoryTest {
 
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndCompetitionAndTeam("2023", "Championship", "Norwich City");
+        List<Fixture> result = underTest.findFixturesByYearCompetitionTeam("2023", "Championship", "Norwich City");
 
         //then
         assertThat(result).isEmpty();
@@ -658,7 +657,7 @@ public class FixtureRepositoryTest {
         underTest.saveAll(fixtures);
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndStadiumAndTeam("2023", "Carrow Road", "Norwich City");
+        List<Fixture> result = underTest.findFixturesByYearStadiumTeam("2023", "Carrow Road", "Norwich City");
 
         //then
         assertThat(result).contains(fixture2);
@@ -680,7 +679,7 @@ public class FixtureRepositoryTest {
 
         //when
 
-        List<Fixture> result = underTest.findFixturesByYearAndStadiumAndTeam("2023", "Carrow Road", "Norwich City");
+        List<Fixture> result = underTest.findFixturesByYearStadiumTeam("2023", "Carrow Road", "Norwich City");
 
         //then
         assertThat(result).isEmpty();

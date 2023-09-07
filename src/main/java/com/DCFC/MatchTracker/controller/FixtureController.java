@@ -41,37 +41,37 @@ public class FixtureController {
 
 
         if (year != null && competition != null && stadium != null && team != null) {
-            return fixtureService.getFixturesByYearAndCompetitionAndStadiumAndTeam(year, competition, stadium, team);
+            return fixtureService.getFixturesByYearCompetitionStadiumTeam(year, competition, stadium, team);
         }
         else if (year != null && competition != null && stadium != null) {
-            return fixtureService.getFixturesByYearAndCompetitionAndStadium(year, competition, stadium);
+            return fixtureService.getFixturesByYearCompetitionStadium(year, competition, stadium);
         }
         else if (year != null && competition != null && team != null) {
-            return fixtureService.getFixturesByYearAndCompetitionAndTeam(year, competition, team);
+            return fixtureService.getFixturesByYearCompetitionTeam(year, competition, team);
         }
         else if (year != null && stadium != null && team != null) {
-            return fixtureService.getFixturesByYearAndStadiumAndTeam(year, stadium, team);
+            return fixtureService.getFixturesByYearStadiumTeam(year, stadium, team);
         }
         else if (competition != null && stadium != null && team != null) {
-            return fixtureService.getFixturesByCompetitionAndStadiumAndTeam(competition, stadium, team);
+            return fixtureService.getFixturesByCompetitionStadiumTeam(competition, stadium, team);
         }
         else if (year != null && competition != null) {
-            return fixtureService.getFixturesByYearAndCompetition(year, competition);
+            return fixtureService.getFixturesByYearCompetition(year, competition);
         }
         else if (year != null && stadium != null) {
-            return fixtureService.getFixturesByYearAndStadium(year, stadium);
+            return fixtureService.getFixturesByYearStadium(year, stadium);
         }
         else if (year != null && team != null) {
-            return fixtureService.getFixturesByYearAndTeam(year, team);
+            return fixtureService.getFixturesByYearTeam(year, team);
         }
         else if (competition != null && stadium != null) {
-            return fixtureService.getFixturesByCompetitionAndStadium(competition, stadium);
+            return fixtureService.getFixturesByCompetitionStadium(competition, stadium);
         }
         else if (competition != null && team != null) {
-            return fixtureService.getFixturesByCompetitionAndTeam(competition, team);
+            return fixtureService.getFixturesByCompetitionTeam(competition, team);
         }
         else if (stadium != null && team != null) {
-            return fixtureService.getFixturesByStadiumAndTeam(stadium, team);
+            return fixtureService.getFixturesByStadiumTeam(stadium, team);
         }
         else if (year != null) {
             return fixtureService.getFixturesByYear(year);

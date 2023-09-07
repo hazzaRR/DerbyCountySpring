@@ -31,4 +31,58 @@ public class MatchResultService {
 
         matchResultRepository.save(newResult);
     }
+
+    public List<MatchResult> getMatchResultsBySeasonCompetitionStadiumTeamResult(String season, String competition, String stadium, String team, String result) {
+    }
+
+    public List<MatchResult> getMatchResultsBySeasonCompetitionStadiumTeam(String season, String competition, String stadium, String team) {
+    }
+
+    public List<MatchResult> getMatchResultsBySeasonCompetitionStadium(String season, String competition, String stadium) {
+    }
+
+    public List<MatchResult> getMatchResultsBySeasonCompetitionTeam(String season, String competition, String team) {
+    }
+
+    public List<MatchResult> getMatchResultsBySeasonStadiumTeam(String season, String stadium, String team) {
+    }
+
+    public List<MatchResult> getMatchResultsByCompetitionStadiumTeam(String competition, String stadium, String team) {
+    }
+
+    public List<MatchResult> getMatchResultsBySeasonCompetition(String season, String competition) {
+    }
+
+    public List<MatchResult> getMatchResultsBySeasonStadium(String season, String stadium) {
+    }
+
+    public List<MatchResult> getMatchResultsBySeasonTeam(String season, String team) {
+    }
+
+    public List<MatchResult> getMatchResultsByCompetitionStadium(String competition, String stadium) {
+    }
+
+    public List<MatchResult> getMatchResultsByCompetitionTeam(String competition, String team) {
+    }
+
+    public List<MatchResult> getMatchResultsByStadiumTeam(String stadium, String team) {
+    }
+
+    public List<MatchResult> getMatchResultsBySeason(String season) {
+    }
+
+    public List<MatchResult> getMatchResultsByCompetition(String competition) {
+    }
+
+    public List<MatchResult> getMatchResultsByStadium(String stadium) {
+    }
+
+    public List<MatchResult> getMatchResultsByTeam(String team) {
+    }
+
+    public List<MatchResult> getMatchResultsByResult(String result) {
+    }
+
+    public List<MatchResult> getAllMatchResults() {
+    }
 }
