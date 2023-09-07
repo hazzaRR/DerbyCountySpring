@@ -8,15 +8,6 @@ import java.util.List;
 
 public interface MatchResultRepository extends JpaRepository<MatchResult, Integer> {
 
-    @Query(value = "SELECT DISTINCT(home_team) as team\n" +
-            "FROM match_results \n" +
-            "WHERE home_team != 'Derby County'\n" +
-            "UNION \n" +
-            "SELECT away_team as team \n" +
-            "FROM match_results \n" +
-            "WHERE away_team <> 'Derby County' \n" +
-            "ORDER BY team ASC;", nativeQuery = true)
-    List<String> findTeamsPlayedAgainst();
     List<MatchResult> findByResult(String result);
 
     @Query(value = "SELECT * FROM match_results WHERE home_team = ?1 OR away_team = ?1", nativeQuery = true)
@@ -73,4 +64,25 @@ public interface MatchResultRepository extends JpaRepository<MatchResult, Intege
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND competition = ?2 AND stadium = ?3 AND (home_team = ?4 OR away_team = ?4) AND result = ?5", nativeQuery = true)
 
     List<MatchResult> findBySeasonCompetitionStadiumTeamResult(String season, String competition, String stadium, String team, String result);
+
+    @Query(value = "SELECT DISTINCT(home_team) as team\n" +
+            "FROM match_results \n" +
+            "WHERE home_team != 'Derby County'\n" +
+            "UNION \n" +
+            "SELECT away_team as team \n" +
+            "FROM match_results \n" +
+            "WHERE away_team <> 'Derby County' \n" +
+            "ORDER BY team ASC;", nativeQuery = true)
+    List<String> findTeamsPlayedAgainst();
+
+    @Query(value = "SELECT DISTINCT(home_team) as team\n" +
+            "FROM match_results \n" +
+            "WHERE home_team != 'Derby County' AND season = ?1\n" +
+            "UNION \n" +
+            "SELECT away_team as team \n" +
+            "FROM match_results \n" +
+            "WHERE away_team <> 'Derby County'  AND season = ?1\n" +
+            "ORDER BY team ASC;", nativeQuery = true)
+    List<String> findTeamsPlayedAgainstBySeason(String season);
+
 }
