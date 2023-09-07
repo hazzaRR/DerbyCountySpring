@@ -35,20 +35,22 @@ public class MatchResult extends Match {
     protected MatchResult() {
     }
 
-    public MatchResult(Integer matchId, String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, Integer homeScore, Integer awayScore, String result, String season) {
+    public MatchResult(Integer matchId, String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, Integer homeScore, Integer awayScore, String result, String season, String penaltiesScore) {
         super(matchId, homeTeam, awayTeam, kickoff, competition, stadium);
         this.homeScore = homeScore;
         this.awayScore = awayScore;
         this.result = result;
         this.season = season;
+        this.penaltiesScore = penaltiesScore;
     }
 
-    public MatchResult(String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, Integer homeScore, Integer awayScore, String result, String season) {
+    public MatchResult(String homeTeam, String awayTeam, LocalDateTime kickoff, String competition, String stadium, Integer homeScore, Integer awayScore, String result, String season, String penaltiesScore) {
         super(homeTeam, awayTeam, kickoff, competition, stadium);
         this.homeScore = homeScore;
         this.awayScore = awayScore;
         this.result = result;
         this.season = season;
+        this.penaltiesScore = penaltiesScore;
     }
 
     public Integer getHomeScore() {
@@ -81,5 +83,13 @@ public class MatchResult extends Match {
 
     public void setSeason(String season) {
         this.season = season;
+    }
+
+    public String getPenaltiesScore() {
+        return penaltiesScore;
+    }
+
+    public void setPenaltiesScore(String penaltiesScore) {
+        this.penaltiesScore = penaltiesScore;
     }
 }
