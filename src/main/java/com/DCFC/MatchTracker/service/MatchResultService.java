@@ -111,4 +111,8 @@ public class MatchResultService {
     public List<String> findTeamsPlayedAgainstBySeason(String season) {
         return matchResultRepository.findTeamsPlayedAgainstBySeason(season);
     }
+
+    public List<String> findSeasonsPlayedIn() {
+        return  matchResultRepository.findSeasonsPlayedIn();
+    }
 }

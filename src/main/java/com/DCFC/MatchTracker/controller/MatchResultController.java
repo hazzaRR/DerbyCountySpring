@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/match/")
 public class MatchResultController {
@@ -70,6 +71,11 @@ public List<MatchResult> getMatchResults(@RequestParam(required = false) String 
             return matchResultService.findTeamsPlayedAgainstBySeason(season);
         }
         return matchResultService.findTeamsPlayedAgainst();
+    }
+
+    @GetMapping("/seasons")
+    List<String> seasonsPlayedIn() {
+        return matchResultService.findSeasonsPlayedIn();
     }
 
     @PostMapping("/")
