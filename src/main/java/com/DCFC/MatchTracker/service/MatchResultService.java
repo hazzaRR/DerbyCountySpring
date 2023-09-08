@@ -115,4 +115,12 @@ public class MatchResultService {
     public List<String> findSeasonsPlayedIn() {
         return  matchResultRepository.findSeasonsPlayedIn();
     }
+
+    public List<String> findCompetitionsPlayedIn() {
+        return matchResultRepository.findCompetitionsPlayedIn();
+    }
+
+    public List<String> findCompetitionsPlayedInBySeason(String season) {
+        return matchResultRepository.findCompetitionsPlayedInBySeason(season);
+    }
 }

@@ -78,6 +78,14 @@ public List<MatchResult> getMatchResults(@RequestParam(required = false) String 
         return matchResultService.findSeasonsPlayedIn();
     }
 
+    @GetMapping("/competitions")
+    List<String> competitionsPlayedIn(@RequestParam(required = false) String season) {
+        if (season != null) {
+            return matchResultService.findCompetitionsPlayedInBySeason(season);
+        }
+        return matchResultService.findCompetitionsPlayedIn();
+    }
+
     @PostMapping("/")
     public void addMatchResult(@RequestBody MatchResultDTO matchResult) {
 
