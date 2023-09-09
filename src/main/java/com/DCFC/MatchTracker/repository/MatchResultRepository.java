@@ -93,4 +93,7 @@ public interface MatchResultRepository extends JpaRepository<MatchResult, Intege
 
     @Query(value = "SELECT DISTINCT(competition) from match_results WHERE season = ?1", nativeQuery = true)
     List<String> findCompetitionsPlayedInBySeason(String season);
+
+    @Query(value = "SELECT season from match_results ORDER BY season DESC LIMIT 1", nativeQuery = true)
+    String findCurrentSeason();
 }

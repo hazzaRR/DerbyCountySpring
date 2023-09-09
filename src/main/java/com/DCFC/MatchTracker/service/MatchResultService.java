@@ -123,4 +123,8 @@ public class MatchResultService {
     public List<String> findCompetitionsPlayedInBySeason(String season) {
         return matchResultRepository.findCompetitionsPlayedInBySeason(season);
     }
+
+    public String getCurrentSeason() {
+        return matchResultRepository.findCurrentSeason();
+    }
 }

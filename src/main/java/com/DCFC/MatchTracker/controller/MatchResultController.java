@@ -2,6 +2,7 @@ package com.DCFC.MatchTracker.controller;
 
 
 import com.DCFC.MatchTracker.dto.MatchResultDTO;
+import com.DCFC.MatchTracker.dto.StringResponse;
 import com.DCFC.MatchTracker.model.MatchResult;
 import com.DCFC.MatchTracker.service.MatchResultService;
 import org.springframework.web.bind.annotation.*;
@@ -88,7 +89,12 @@ public List<MatchResult> getMatchResults(@RequestParam(required = false) String 
 
     @PostMapping("/")
     public void addMatchResult(@RequestBody MatchResultDTO matchResult) {
-
         matchResultService.addMatchResult(matchResult);
+    }
+
+    @GetMapping("/current-season")
+    @ResponseBody
+    public StringResponse getCurrentSeason () {
+        return new StringResponse(matchResultService.getCurrentSeason());
     }
 }

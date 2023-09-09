@@ -79,4 +79,6 @@ public interface FixtureRepository extends JpaRepository<Fixture, Integer> {
             "WHERE away_team <> 'Derby County'\n" +
             "ORDER BY team ASC;", nativeQuery = true)
     List<String> findTeams();
+
+
 }
