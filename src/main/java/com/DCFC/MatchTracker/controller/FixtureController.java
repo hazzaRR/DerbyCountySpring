@@ -96,6 +96,14 @@ public class FixtureController {
     public List<String> getCompetitions() {
         return fixtureService.getCompetitions();
     }
+    @GetMapping("/teams")
+    List<String> teamsPlayedAgainst(@RequestParam(required = false) String competition) {
+
+        if (competition != null) {
+            return fixtureService.getTeamsInCompetition(competition);
+        }
+        return fixtureService.getTeams();
+    }
 
 
     @DeleteMapping("/")

@@ -59,4 +59,24 @@ public interface FixtureRepository extends JpaRepository<Fixture, Integer> {
 
     @Query(value = "SELECT DISTINCT(competition) from upcoming_fixtures", nativeQuery = true)
     List<String> findCompetitions();
+
+    @Query(value = "SELECT DISTINCT(home_team) as team\n" +
+            "FROM upcoming_fixtures \n" +
+            "WHERE home_team != 'Derby County' AND competition = ?1\n" +
+            "UNION \n" +
+            "SELECT away_team as team \n" +
+            "FROM upcoming_fixtures \n" +
+            "WHERE away_team <> 'Derby County' AND competition = ?1\n" +
+            "ORDER BY team ASC;", nativeQuery = true)
+    List<String> findTeamsInCompetition(String competition);
+
+    @Query(value = "SELECT DISTINCT(home_team) as team\n" +
+            "FROM upcoming_fixtures \n" +
+            "WHERE home_team != 'Derby County'\n" +
+            "UNION \n" +
+            "SELECT away_team as team \n" +
+            "FROM upcoming_fixtures \n" +
+            "WHERE away_team <> 'Derby County'\n" +
+            "ORDER BY team ASC;", nativeQuery = true)
+    List<String> findTeams();
 }

@@ -151,4 +151,12 @@ public class FixtureService {
     public List<String> getCompetitions() {
         return fixtureRepository.findCompetitions();
     }
+
+    public List<String> getTeamsInCompetition(String competition) {
+        return fixtureRepository.findTeamsInCompetition(competition);
+    }
+
+    public List<String> getTeams() {
+        return fixtureRepository.findTeams();
+    }
 }
