@@ -92,6 +92,12 @@ public class FixtureController {
         }
     }
 
+    @GetMapping("/competitions")
+    public List<String> getCompetitions() {
+        return fixtureService.getCompetitions();
+    }
+
+
     @DeleteMapping("/")
     public void deleteAllFixtures() {
         fixtureService.deleteFixtures();

@@ -147,4 +147,8 @@ public class FixtureService {
         }
 
     }
+
+    public List<String> getCompetitions() {
+        return fixtureRepository.findCompetitions();
+    }
 }

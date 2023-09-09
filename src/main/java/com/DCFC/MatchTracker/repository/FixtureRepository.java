@@ -55,4 +55,8 @@ public interface FixtureRepository extends JpaRepository<Fixture, Integer> {
 
     @Query(value = "SELECT * FROM upcoming_fixtures WHERE kickoff LIKE %?1% AND stadium = ?2 AND (away_team = ?3 OR home_team = ?3)", nativeQuery = true)
     List<Fixture> findFixturesByYearStadiumTeam(String year, String stadium, String team);
+
+
+    @Query(value = "SELECT DISTINCT(competition) from upcoming_fixtures", nativeQuery = true)
+    List<String> findCompetitions();
 }
