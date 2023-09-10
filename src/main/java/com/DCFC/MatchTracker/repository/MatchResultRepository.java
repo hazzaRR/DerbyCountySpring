@@ -34,35 +34,27 @@ public interface MatchResultRepository extends JpaRepository<MatchResult, Intege
     List<MatchResult> findBySeasonTeam(String season, String team);
 
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND stadium = ?2", nativeQuery = true)
-
     List<MatchResult> findBySeasonStadium(String season, String stadium);
 
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND competition = ?2", nativeQuery = true)
-
     List<MatchResult> findBySeasonCompetition(String season, String competition);
 
     @Query(value = "SELECT * FROM match_results WHERE competition = ?1 AND stadium = ?2 AND (home_team = ?3 OR away_team = ?3)", nativeQuery = true)
     List<MatchResult> findByCompetitionStadiumTeam(String competition, String stadium, String team);
 
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND stadium = ?2 AND (home_team = ?3 OR away_team = ?3)", nativeQuery = true)
-
     List<MatchResult> findBySeasonStadiumTeam(String season, String stadium, String team);
 
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND competition = ?2 AND (home_team = ?3 OR away_team = ?3)", nativeQuery = true)
-
     List<MatchResult> findBySeasonCompetitionTeam(String season, String competition, String team);
 
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND competition = ?2 AND stadium = ?3", nativeQuery = true)
-
-
     List<MatchResult> findBySeasonCompetitionStadium(String season, String competition, String stadium);
 
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND competition = ?2 AND stadium = ?3 AND (home_team = ?4 OR away_team = ?4)", nativeQuery = true)
-
     List<MatchResult> findBySeasonCompetitionStadiumTeam(String season, String competition, String stadium, String team);
 
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND competition = ?2 AND stadium = ?3 AND (home_team = ?4 OR away_team = ?4) AND result = ?5", nativeQuery = true)
-
     List<MatchResult> findBySeasonCompetitionStadiumTeamResult(String season, String competition, String stadium, String team, String result);
 
     @Query(value = "SELECT DISTINCT(home_team) as team\n" +

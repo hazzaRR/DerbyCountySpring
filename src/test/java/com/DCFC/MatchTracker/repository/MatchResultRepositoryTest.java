@@ -389,4 +389,170 @@ public class MatchResultRepositoryTest {
         assertThat(result).isEmpty();
 
     }
+
+    @Test
+    void FindBySeasonStadium() {
+
+        ArrayList<MatchResult> matches = new ArrayList<>();
+
+        //given
+        MatchResult match1 = new MatchResult("Derby County", "Norwich City", LocalDateTime.now().plusWeeks(2), "Championship", "Pride Park", 2, 1, "W", "2023-24", null);
+        MatchResult match2 = new MatchResult("Derby County", "Leicester City", LocalDateTime.now(), "Championship", "King Power Stadium", 2, 3, "L", "2023-24", null);
+
+        matches.add(match1);
+        matches.add(match2);
+
+        underTest.saveAll(matches);
+        //when
+
+        List<MatchResult> result = underTest.findBySeasonStadium("2023-24", "Pride Park");
+
+
+        //then
+        assertThat(result).contains(match1);
+        assertThat(result).doesNotContain(match2);
+    }
+
+    @Test
+    void FindBySeasonStadiumDoesNotExist() {
+
+        //given
+
+        String season = "2023-24";
+        String stadium = "Pride Park";
+
+        //when
+
+        List<MatchResult> result = underTest.findBySeasonStadium(season, stadium);
+
+        //then
+
+        assertThat(result).isEmpty();
+
+    }
+
+    @Test
+    void FindBySeasonCompetition() {
+
+        ArrayList<MatchResult> matches = new ArrayList<>();
+
+        //given
+        MatchResult match1 = new MatchResult("Derby County", "Norwich City", LocalDateTime.now().plusWeeks(2), "Championship", "Pride Park", 2, 1, "W", "2023-24", null);
+        MatchResult match2 = new MatchResult("Derby County", "Leicester City", LocalDateTime.now(), "Championship", "King Power Stadium", 2, 3, "L", "2023-24", null);
+
+        matches.add(match1);
+        matches.add(match2);
+
+        underTest.saveAll(matches);
+        //when
+
+        List<MatchResult> result = underTest.findBySeasonCompetition("2023-24", "Championship");
+
+
+        //then
+        assertThat(result).containsAll(matches);
+    }
+
+    @Test
+    void FindBySeasonCompetitionDoesNotExist() {
+
+        //given
+
+        String season = "2023-24";
+        String stadium = "Pride Park";
+
+        //when
+
+        List<MatchResult> result = underTest.findBySeasonStadium(season, stadium);
+
+        //then
+
+        assertThat(result).isEmpty();
+
+    }
+
+    @Test
+    void FindByCompetitionStadiumTeam() {
+
+        ArrayList<MatchResult> matches = new ArrayList<>();
+
+        //given
+        MatchResult match1 = new MatchResult("Derby County", "Norwich City", LocalDateTime.now().plusWeeks(2), "Championship", "Pride Park", 2, 1, "W", "2023-24", null);
+        MatchResult match2 = new MatchResult("Derby County", "Leicester City", LocalDateTime.now(), "Championship", "King Power Stadium", 2, 3, "L", "2023-24", null);
+
+        matches.add(match1);
+        matches.add(match2);
+
+        underTest.saveAll(matches);
+        //when
+
+        List<MatchResult> result = underTest.findByCompetitionStadiumTeam("Championship", "Pride Park", "Norwich City");
+
+
+        //then
+        assertThat(result).contains(match1);
+        assertThat(result).doesNotContain(match2);
+    }
+
+    @Test
+    void FindByCompetitionStadiumTeamDoesNotExist() {
+
+        //given
+
+        String competition = "Championship";
+        String team = "Norwich City";
+        String stadium = "Pride Park";
+
+        //when
+
+        List<MatchResult> result = underTest.findByCompetitionStadiumTeam(competition, stadium, team);
+
+        //then
+
+        assertThat(result).isEmpty();
+
+    }
+
+    @Test
+    void FindBySeasonStadiumTeam() {
+
+        ArrayList<MatchResult> matches = new ArrayList<>();
+
+        //given
+        MatchResult match1 = new MatchResult("Derby County", "Norwich City", LocalDateTime.now().plusWeeks(2), "Championship", "Pride Park", 2, 1, "W", "2023-24", null);
+        MatchResult match2 = new MatchResult("Derby County", "Leicester City", LocalDateTime.now(), "Championship", "King Power Stadium", 2, 3, "L", "2023-24", null);
+
+        matches.add(match1);
+        matches.add(match2);
+
+        underTest.saveAll(matches);
+        //when
+
+        List<MatchResult> result = underTest.findBySeasonStadiumTeam("2023-24", "Pride Park", "Norwich City");
+
+
+        //then
+        assertThat(result).contains(match1);
+        assertThat(result).doesNotContain(match2);
+    }
+
+    @Test
+    void FindBySeasonStadiumTeamDoesNotExist() {
+
+        //given
+
+        String season = "2023-24";
+        String team = "Norwich City";
+        String stadium = "Pride Park";
+
+        //when
+
+        List<MatchResult> result = underTest.findBySeasonStadiumTeam(season, stadium, team);
+
+        //then
+
+        assertThat(result).isEmpty();
+
+    }
 }
+
