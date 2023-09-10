@@ -66,12 +66,12 @@ public List<MatchResult> getMatchResults(@RequestParam(required = false) String 
     }
 
     @GetMapping("/all-teams-played-against")
-    List<String> teamsPlayedAgainst(@RequestParam(required = false) String season) {
+    List<String> teamsPlayedAgainst(@RequestParam() String season, @RequestParam(required = false) String competition) {
 
-        if (season != null) {
-            return matchResultService.findTeamsPlayedAgainstBySeason(season);
+        if (competition != null) {
+            return matchResultService.findTeamsPlayedAgainstBySeasonCompetition(season, competition);
         }
-        return matchResultService.findTeamsPlayedAgainst();
+            return matchResultService.findTeamsPlayedAgainstBySeason(season);
     }
 
     @GetMapping("/seasons")
