@@ -803,6 +803,204 @@ public class MatchResultRepositoryTest {
         assertThat(result).isEmpty();
 
     }
+
+    @Test
+    void FindSeasonsPlayedIn() {
+
+        ArrayList<MatchResult> matches = new ArrayList<>();
+
+        //given
+        MatchResult match1 = new MatchResult("Derby County", "Norwich City", LocalDateTime.now().plusWeeks(2), "Championship", "Pride Park", 2, 1, "W", "2023-24", null);
+        MatchResult match2 = new MatchResult("Derby County", "Leicester City", LocalDateTime.now(), "Championship", "King Power Stadium", 2, 3, "L", "2022-23", null);
+
+        matches.add(match1);
+        matches.add(match2);
+
+        underTest.saveAll(matches);
+        //when
+
+        List<String> result = underTest.findSeasonsPlayedIn();
+
+
+        //then
+        assertThat(result).contains("2023-24");
+        assertThat(result).contains("2022-23");
+
+    }
+
+    @Test
+    void FindSeasonsPlayedInDoesNotExist() {
+
+        //given
+
+        //when
+
+        List<String> result = underTest.findSeasonsPlayedIn();
+
+        //then
+
+        assertThat(result).isEmpty();
+
+    }
+
+    @Test
+    void FindCompetitionsPlayedIn() {
+
+        ArrayList<MatchResult> matches = new ArrayList<>();
+
+        //given
+        MatchResult match1 = new MatchResult("Derby County", "Norwich City", LocalDateTime.now().plusWeeks(2), "Championship", "Pride Park", 2, 1, "W", "2023-24", null);
+        MatchResult match2 = new MatchResult("Derby County", "Leicester City", LocalDateTime.now(), "Championship", "King Power Stadium", 2, 3, "L", "2022-23", null);
+
+        matches.add(match1);
+        matches.add(match2);
+
+        underTest.saveAll(matches);
+        //when
+
+        List<String> result = underTest.findCompetitionsPlayedIn();
+
+
+        //then
+        assertThat(result).contains("Championship");
+
+    }
+
+    @Test
+    void FindCompetitionsPlayedInDoesNotExist() {
+
+        //given
+
+        //when
+
+        List<String> result = underTest.findCompetitionsPlayedIn();
+
+        //then
+
+        assertThat(result).isEmpty();
+
+    }
+
+    @Test
+    void FindCompetitionsPlayedInBySeason() {
+
+        ArrayList<MatchResult> matches = new ArrayList<>();
+
+        //given
+        MatchResult match1 = new MatchResult("Derby County", "Norwich City", LocalDateTime.now().plusWeeks(2), "Championship", "Pride Park", 2, 1, "W", "2023-24", null);
+        MatchResult match2 = new MatchResult("Derby County", "Leicester City", LocalDateTime.now(), "Championship", "King Power Stadium", 2, 3, "L", "2022-23", null);
+
+        matches.add(match1);
+        matches.add(match2);
+
+        underTest.saveAll(matches);
+        //when
+
+        List<String> result = underTest.findCompetitionsPlayedInBySeason("2023-24");
+
+
+        //then
+        assertThat(result).contains("Championship");
+
+    }
+
+    @Test
+    void FindCompetitionsPlayedInBySeasonDoesNotExist() {
+
+        //given
+
+        //when
+
+        List<String> result = underTest.findCompetitionsPlayedInBySeason("2023-24");
+
+        //then
+
+        assertThat(result).isEmpty();
+
+    }
+
+    @Test
+    void FindCurrentSeason() {
+
+        ArrayList<MatchResult> matches = new ArrayList<>();
+
+        //given
+        MatchResult match1 = new MatchResult("Derby County", "Norwich City", LocalDateTime.now().plusWeeks(2), "Championship", "Pride Park", 2, 1, "W", "2023-24", null);
+        MatchResult match2 = new MatchResult("Derby County", "Leicester City", LocalDateTime.now(), "Championship", "King Power Stadium", 2, 3, "L", "2022-23", null);
+
+        matches.add(match1);
+        matches.add(match2);
+
+        underTest.saveAll(matches);
+        //when
+
+        String result = underTest.findCurrentSeason();
+
+
+        //then
+        assertThat(result).isEqualTo("2023-24");
+
+
+    }
+
+    @Test
+    void FindCurrentSeasonDoesNotExist() {
+
+        //given
+
+        //when
+
+        String result = underTest.findCurrentSeason();
+
+        System.out.println(result);
+
+        //then
+
+        assertThat(result).isNull();
+
+    }
+
+    @Test
+    void FindTeamsPlayedAgainstBySeasonCompetition() {
+
+        ArrayList<MatchResult> matches = new ArrayList<>();
+
+        //given
+        MatchResult match1 = new MatchResult("Derby County", "Norwich City", LocalDateTime.now().plusWeeks(2), "Championship", "Pride Park", 2, 1, "W", "2023-24", null);
+        MatchResult match2 = new MatchResult("Derby County", "Leicester City", LocalDateTime.now(), "Championship", "King Power Stadium", 2, 3, "L", "2023-24", null);
+
+        matches.add(match1);
+        matches.add(match2);
+
+        underTest.saveAll(matches);
+        //when
+
+        List<String> result = underTest.findTeamsPlayedAgainstBySeasonCompetition("2023-24", "Championship");
+
+
+        //then
+        assertThat(result).contains("Norwich City");
+        assertThat(result).contains("Leicester City");
+
+
+    }
+
+    @Test
+    void FindTeamsPlayedAgainstBySeasonCompetitionDoesNotExist() {
+
+        //given
+
+        //when
+
+        String result = underTest.findCurrentSeason();
+
+        System.out.println(result);
+
+        //then
+
+        assertThat(result).isNull();
+
+    }
 }
 
 
