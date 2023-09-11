@@ -15,12 +15,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class TokenService {
 
-
-    @Autowired
     private JwtEncoder jwtEncoder;
 
-    @Autowired
     private JwtDecoder jwtDecoder;
+
+    public TokenService (JwtEncoder jwtEncoder, JwtDecoder jwtDecoder) {
+        this.jwtDecoder = jwtDecoder;
+        this.jwtEncoder = jwtEncoder;
+    }
 
     public String generateJwt(Authentication auth) {
 

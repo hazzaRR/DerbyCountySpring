@@ -13,7 +13,7 @@ import com.DCFC.MatchTracker.model.User;
 import com.DCFC.MatchTracker.service.AuthenticationService;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 @CrossOrigin("*")
 public class AuthController {
 
