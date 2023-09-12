@@ -23,10 +23,10 @@ public class MatchTrackerApplication {
 		SpringApplication.run(MatchTrackerApplication.class, args);
 	}
 
-	@Bean
-	public PasswordEncoder passwordEncoder(){
-		return new BCryptPasswordEncoder();
-	}
+//	@Bean
+//	public PasswordEncoder passwordEncoder(){
+//		return new BCryptPasswordEncoder();
+//	}
 
 	@Bean
 	@DependsOn("passwordEncoder")
