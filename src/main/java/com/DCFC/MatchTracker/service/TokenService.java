@@ -1,6 +1,7 @@
 package com.DCFC.MatchTracker.service;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ public class TokenService {
         JwtClaimsSet claims = JwtClaimsSet.builder()
                 .issuer("self")
                 .issuedAt(now)
+                .expiresAt(now.plus(1, ChronoUnit.DAYS))
                 .subject(auth.getName())
                 .claim("roles", scope)
                 .build();
