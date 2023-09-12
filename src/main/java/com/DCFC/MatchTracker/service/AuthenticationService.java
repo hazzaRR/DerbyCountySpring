@@ -24,22 +24,23 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class AuthenticationService {
 
-    @Autowired
     private UserRepository userRepository;
 
-    @Autowired
     private RoleRepository roleRepository;
 
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
     private AuthenticationManager authenticationManager;
 
-    @Autowired
     private TokenService tokenService;
 
-
+    public AuthenticationService(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, TokenService tokenService) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.authenticationManager = authenticationManager;
+        this.tokenService = tokenService;
+    }
 
     public User registerUser(String username, String password) {
 

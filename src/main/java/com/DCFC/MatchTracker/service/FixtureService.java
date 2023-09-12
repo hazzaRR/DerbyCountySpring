@@ -159,4 +159,8 @@ public class FixtureService {
     public List<String> getTeams() {
         return fixtureRepository.findTeams();
     }
+
+    public Fixture getNextFixture() {
+        return fixtureRepository.findNextFixture();
+    }
 }

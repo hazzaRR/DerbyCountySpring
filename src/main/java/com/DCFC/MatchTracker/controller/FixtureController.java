@@ -105,6 +105,11 @@ public class FixtureController {
         return fixtureService.getTeams();
     }
 
+    @GetMapping("/next-fixture")
+    public Fixture getNextFixture() {
+        return fixtureService.getNextFixture();
+    }
+
 
     @DeleteMapping("/")
     public void deleteAllFixtures() {

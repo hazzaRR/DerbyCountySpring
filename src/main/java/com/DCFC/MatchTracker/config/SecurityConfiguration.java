@@ -3,6 +3,7 @@ package com.DCFC.MatchTracker.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -61,7 +62,10 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers("/api/auth/**").permitAll();
                     auth.requestMatchers("/api/match/**").permitAll();
-                    auth.requestMatchers("/api/fixtures/**").permitAll();
+                    auth.requestMatchers(HttpMethod.GET, "/api/match/**").permitAll();
+                    auth.requestMatchers("/api/match/**").hasRole("ADMIN");
+                    auth.requestMatchers(HttpMethod.GET,"/api/fixtures/**").permitAll();
+                    auth.requestMatchers("/api/fixtures/**").hasRole("ADMIN");
                     auth.requestMatchers("/admin/**").hasRole("ADMIN");
                     auth.requestMatchers("/user/**").hasAnyRole("USER", "ADMIN");
                     auth.anyRequest().authenticated();
