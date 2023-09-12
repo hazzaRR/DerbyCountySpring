@@ -81,4 +81,6 @@ public interface FixtureRepository extends JpaRepository<Fixture, Integer> {
     List<String> findTeams();
 
 
+    @Query(value = "SELECT * FROM upcoming_fixtures ORDER BY kickoff ASC LIMIT 1", nativeQuery = true)
+    Fixture findNextFixture();
 }

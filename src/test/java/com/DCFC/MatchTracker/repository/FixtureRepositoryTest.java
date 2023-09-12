@@ -685,4 +685,47 @@ public class FixtureRepositoryTest {
         assertThat(result).isEmpty();
 
     }
+
+    @Test
+    void FindNextFixture() {
+
+        ArrayList<Fixture> fixtures = new ArrayList<>();
+
+        //given
+        Fixture fixture1 = new Fixture("Derby County", "Nottingham Forest", LocalDateTime.now(), "Championship", "Pride Park Stadium", "https:url.co.uk");
+        Fixture fixture2 = new Fixture( "Norwich City", "Derby County",  LocalDateTime.now().plusWeeks(2), "Championship", "Carrow Road", "https:url123.co.uk");
+
+        fixtures.add(fixture1);
+        fixtures.add(fixture2);
+
+        underTest.saveAll(fixtures);
+        //when
+
+        Fixture result = underTest.findNextFixture();
+
+        //then
+        assertThat(result).isEqualTo(fixture1);
+
+    }
+
+    @Test
+    void FindNextFixtureDoesNotExist() {
+
+        ArrayList<Fixture> fixtures = new ArrayList<>();
+
+        //given
+        Fixture fixture1 = new Fixture("Derby County", "Nottingham Forest", LocalDateTime.now(), "Championship", "Pride Park Stadium", "https:url.co.uk");
+        Fixture fixture2 = new Fixture("Norwich City", "Derby County", LocalDateTime.now().plusWeeks(2), "Championship", "Carrow Road", "https:url123.co.uk");
+
+        fixtures.add(fixture1);
+        fixtures.add(fixture2);
+
+        //when
+
+        Fixture result = underTest.findNextFixture();
+
+        //then
+        assertThat(result).isNull();
+
+    }
 }
