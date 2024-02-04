@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RestController
-@RequestMapping("/api/fixtures/")
+@RequestMapping("/api/fixtures")
 public class FixtureController {
 
 
-    private FixtureService fixtureService;
+    private final FixtureService fixtureService;
 
     public FixtureController(FixtureService fixtureService) {
         this.fixtureService = fixtureService;
