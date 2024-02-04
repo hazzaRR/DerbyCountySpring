@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RestController
-@RequestMapping("/api/fixtures/")
+@RequestMapping("/api/fixtures")
 public class FixtureController {
 
 
@@ -103,6 +103,11 @@ public class FixtureController {
             return fixtureService.getTeamsInCompetition(competition);
         }
         return fixtureService.getTeams();
+    }
+
+    @GetMapping("/next-fixture")
+    public Fixture getNextFixture() {
+        return fixtureService.getNextFixture();
     }
 
 
