@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api/match")
 public class MatchResultController {
 
-    private MatchResultService matchResultService;
+    private final MatchResultService matchResultService;
 
     public MatchResultController(MatchResultService matchResultService) {
         this.matchResultService = matchResultService;
