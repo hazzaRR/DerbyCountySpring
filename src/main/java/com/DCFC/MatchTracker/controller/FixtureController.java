@@ -15,7 +15,7 @@ import java.util.List;
 public class FixtureController {
 
 
-    private FixtureService fixtureService;
+    private final FixtureService fixtureService;
 
     public FixtureController(FixtureService fixtureService) {
         this.fixtureService = fixtureService;
@@ -27,10 +27,10 @@ public class FixtureController {
     }
 
 
-//    @GetMapping("/")
-//    public List<Fixture> getFixtures() {
-//        return fixtureService.getFixtures();
-//    }
+    @GetMapping("/")
+    public List<Fixture> getFixtures() {
+        return fixtureService.getFixtures();
+    }
 
     @GetMapping(path = "/find")
     public List<Fixture> getFixtures(

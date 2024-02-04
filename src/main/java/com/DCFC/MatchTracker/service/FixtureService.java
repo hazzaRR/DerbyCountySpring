@@ -17,7 +17,7 @@ import java.util.Objects;
 public class FixtureService {
 
 
-    private FixtureRepository fixtureRepository;
+    private final FixtureRepository fixtureRepository;
 
     public FixtureService(FixtureRepository fixtureRepository) {
         this.fixtureRepository = fixtureRepository;

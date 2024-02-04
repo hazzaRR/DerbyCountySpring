@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class MatchResultService {
 
-    private MatchResultRepository matchResultRepository;
+    private final MatchResultRepository matchResultRepository;
 
     public MatchResultService(MatchResultRepository matchResultRepository) {
         this.matchResultRepository = matchResultRepository;
