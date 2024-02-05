@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: ${POSTGRESQLCONNSTR_DBConnection}
+  sql:
+    init:
+      mode: always
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      format_sql: false

@@ -86,6 +86,15 @@ public interface MatchResultRepository extends JpaRepository<MatchResult, Intege
     @Query(value = "SELECT DISTINCT(competition) from match_results WHERE season = ?1", nativeQuery = true)
     List<String> findCompetitionsPlayedInBySeason(String season);
 
+    @Query(value = "SELECT DISTINCT(competition)\n" +
+            "FROM match_results \n" +
+            "WHERE home_team = ?1\n" +
+            "UNION \n" +
+            "SELECT DISTINCT(competition)\n" +
+            "FROM match_results \n" +
+            "WHERE away_team = ?1 \n", nativeQuery = true)
+    List<String> findCompetitionsPlayedInByTeam(String team);
+
     @Query(value = "SELECT season from match_results ORDER BY season DESC LIMIT 1", nativeQuery = true)
     String findCurrentSeason();
 
@@ -109,4 +118,5 @@ public interface MatchResultRepository extends JpaRepository<MatchResult, Intege
             "WHERE away_team <> 'Derby County' AND competition = ?1\n" +
             "ORDER BY team ASC;", nativeQuery = true)
     List<String> findTeamsPlayedAgainstByCompetition(String competition);
+
 }

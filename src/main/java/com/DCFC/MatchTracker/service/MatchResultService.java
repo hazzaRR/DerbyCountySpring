@@ -123,6 +123,9 @@ public class MatchResultService {
     public List<String> findCompetitionsPlayedInBySeason(String season) {
         return matchResultRepository.findCompetitionsPlayedInBySeason(season);
     }
+    public List<String> findCompetitionsPlayedInByTeam(String team) {
+        return matchResultRepository.findCompetitionsPlayedInByTeam(team);
+    }
 
     public String getCurrentSeason() {
         return matchResultRepository.findCurrentSeason();
@@ -135,4 +138,5 @@ public class MatchResultService {
     public List<String> findTeamsPlayedAgainstByCompetition(String competition) {
         return matchResultRepository.findTeamsPlayedAgainstByCompetition(competition);
     }
+
 }
