@@ -2,6 +2,7 @@ package com.DCFC.MatchTracker.controller;
 
 
 import com.DCFC.MatchTracker.dto.MatchResultDTO;
+import com.DCFC.MatchTracker.dto.RecordDTO;
 import com.DCFC.MatchTracker.dto.StringResponse;
 import com.DCFC.MatchTracker.model.MatchResult;
 import com.DCFC.MatchTracker.service.MatchResultService;
@@ -9,6 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = {"http://localhost:3000"})
 @Tag(name = "Match", description = "API to get all the past and present Derby County match results")
@@ -112,7 +114,13 @@ public List<MatchResult> getMatchResults(@RequestParam(required = false) String 
 
     @GetMapping("/current-season")
     @ResponseBody
-    public StringResponse getCurrentSeason () {
+    public StringResponse getCurrentSeason() {
         return new StringResponse(matchResultService.getCurrentSeason());
+    }
+
+    @GetMapping("/record")
+    @ResponseBody
+    public List<RecordDTO> getRecord() {
+        return matchResultService.getRecord();
     }
 }

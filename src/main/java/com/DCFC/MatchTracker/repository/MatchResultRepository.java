@@ -1,10 +1,12 @@
 package com.DCFC.MatchTracker.repository;
 
+import com.DCFC.MatchTracker.dto.RecordDTO;
 import com.DCFC.MatchTracker.model.MatchResult;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MatchResultRepository extends JpaRepository<MatchResult, Integer> {
 
@@ -129,5 +131,9 @@ public interface MatchResultRepository extends JpaRepository<MatchResult, Intege
             "WHERE away_team <> 'Derby County' AND competition = ?1\n" +
             "ORDER BY team ASC;", nativeQuery = true)
     List<String> findTeamsPlayedAgainstByCompetition(String competition);
+
+
+    @Query(value = "SELECT new com.DCFC.MatchTracker.dto.RecordDTO(result, count(*)) from MatchResult GROUP BY result")
+    List<RecordDTO> findRecord();
 
 }

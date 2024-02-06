@@ -1,12 +1,14 @@
 package com.DCFC.MatchTracker.service;
 
 import com.DCFC.MatchTracker.dto.MatchResultDTO;
+import com.DCFC.MatchTracker.dto.RecordDTO;
 import com.DCFC.MatchTracker.model.MatchResult;
 import com.DCFC.MatchTracker.repository.MatchResultRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MatchResultService {
@@ -141,5 +143,9 @@ public class MatchResultService {
 
     public List<String> findCompetitionsPlayedInBySeasonAndByTeam(String season, String team) {
         return matchResultRepository.findCompetitionsPlayedInBySeasonAndByTeam(season, team);
+    }
+
+    public List<RecordDTO>  getRecord() {
+        return matchResultRepository.findRecord();
     }
 }
