@@ -4,12 +4,14 @@ package com.DCFC.MatchTracker.controller;
 import com.DCFC.MatchTracker.dto.FixtureDTO;
 import com.DCFC.MatchTracker.model.Fixture;
 import com.DCFC.MatchTracker.service.FixtureService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
 @CrossOrigin(origins = {"http://localhost:3000"})
+@Tag(name = "Fixture", description = "API to get all the upcoming Derby County fixture data")
 @RestController
 @RequestMapping("/api/fixtures")
 public class FixtureController {

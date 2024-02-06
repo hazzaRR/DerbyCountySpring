@@ -5,11 +5,13 @@ import com.DCFC.MatchTracker.dto.MatchResultDTO;
 import com.DCFC.MatchTracker.dto.StringResponse;
 import com.DCFC.MatchTracker.model.MatchResult;
 import com.DCFC.MatchTracker.service.MatchResultService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin(origins = {"http://localhost:3000"})
+@Tag(name = "Match", description = "API to get all the past and present Derby County match results")
 @RestController
 @RequestMapping("/api/match")
 public class MatchResultController {
