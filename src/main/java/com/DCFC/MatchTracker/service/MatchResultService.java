@@ -139,4 +139,7 @@ public class MatchResultService {
         return matchResultRepository.findTeamsPlayedAgainstByCompetition(competition);
     }
 
+    public List<String> findCompetitionsPlayedInBySeasonAndByTeam(String season, String team) {
+        return matchResultRepository.findCompetitionsPlayedInBySeasonAndByTeam(season, team);
+    }
 }

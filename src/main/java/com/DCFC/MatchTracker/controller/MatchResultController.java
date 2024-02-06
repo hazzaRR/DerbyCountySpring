@@ -90,6 +90,10 @@ public List<MatchResult> getMatchResults(@RequestParam(required = false) String 
 
     @GetMapping("/competitions")
     List<String> competitionsPlayedIn(@RequestParam(required = false) String season, @RequestParam(required = false) String team) {
+        if (season != null && team != null) {
+            return matchResultService.findCompetitionsPlayedInBySeasonAndByTeam(season, team);
+        }
+
         if (season != null) {
             return matchResultService.findCompetitionsPlayedInBySeason(season);
         }
