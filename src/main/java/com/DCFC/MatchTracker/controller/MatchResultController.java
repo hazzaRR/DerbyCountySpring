@@ -120,7 +120,10 @@ public List<MatchResult> getMatchResults(@RequestParam(required = false) String 
 
     @GetMapping("/record")
     @ResponseBody
-    public List<RecordDTO> getRecord() {
+    public List<RecordDTO> getRecord(@RequestParam(required = false) String team) {
+        if (team != null) {
+            return matchResultService.getRecordByTeam(team);
+        }
         return matchResultService.getRecord();
     }
 }

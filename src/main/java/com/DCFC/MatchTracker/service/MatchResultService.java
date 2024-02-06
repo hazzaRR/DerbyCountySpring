@@ -148,4 +148,8 @@ public class MatchResultService {
     public List<RecordDTO>  getRecord() {
         return matchResultRepository.findRecord();
     }
+
+    public List<RecordDTO> getRecordByTeam(String team) {
+        return matchResultRepository.findRecordByTeam(team);
+    }
 }

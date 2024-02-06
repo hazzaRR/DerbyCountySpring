@@ -136,4 +136,6 @@ public interface MatchResultRepository extends JpaRepository<MatchResult, Intege
     @Query(value = "SELECT new com.DCFC.MatchTracker.dto.RecordDTO(result, count(*)) from MatchResult GROUP BY result")
     List<RecordDTO> findRecord();
 
+    @Query(value = "SELECT new com.DCFC.MatchTracker.dto.RecordDTO(m.result, count(*)) from MatchResult m WHERE m.homeTeam = ?1 OR m.awayTeam = ?1 GROUP BY m.result")
+    List<RecordDTO> findRecordByTeam(String team);
 }
