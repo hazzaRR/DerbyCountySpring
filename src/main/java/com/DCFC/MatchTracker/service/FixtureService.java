@@ -54,14 +54,6 @@ public class FixtureService {
         fixtureRepository.deleteById(fixtureId);
     }
 
-    public List<Fixture> getFixturesByYear(String year) {
-
-       return fixtureRepository.findFixturesByYear("%"+year+"%");
-    }
-
-    public List<Fixture> getFixturesByYearCompetitionStadiumTeam(String year, String competition, String stadium, String team) {
-        return fixtureRepository.findFixturesByYearCompetitionStadiumTeam(year, competition, stadium, team);
-    }
 
     public List<Fixture> getFixturesByTeam(String team) {
         return fixtureRepository.findFixturesByTeam(team);
@@ -87,32 +79,8 @@ public class FixtureService {
         return fixtureRepository.findFixturesByCompetitionStadium(competition, stadium);
     }
 
-    public List<Fixture> getFixturesByYearTeam(String year, String team) {
-        return fixtureRepository.findFixturesByYearTeam(year, team);
-    }
-
-    public List<Fixture> getFixturesByYearStadium(String year, String stadium) {
-        return fixtureRepository.findFixturesByYearStadium(year, stadium);
-    }
-
-    public List<Fixture> getFixturesByYearCompetition(String year, String competition) {
-        return fixtureRepository.findFixturesByYearCompetition(year, competition);
-    }
-
     public List<Fixture> getFixturesByCompetitionStadiumTeam(String competition, String stadium, String team) {
         return fixtureRepository.findFixturesByCompetitionStadiumTeam(competition, stadium, team);
-    }
-
-    public List<Fixture> getFixturesByYearCompetitionStadium(String year, String competition, String stadium) {
-        return fixtureRepository.findFixturesByYearCompetitionStadium(year, competition, stadium);
-    }
-
-    public List<Fixture> getFixturesByYearCompetitionTeam(String year, String competition, String team) {
-        return fixtureRepository.findFixturesByYearCompetitionTeam(year, competition, team);
-    }
-
-    public List<Fixture> getFixturesByYearStadiumTeam(String year, String stadium, String team) {
-        return fixtureRepository.findFixturesByYearStadiumTeam(year, stadium, team);
     }
 
     @Transactional

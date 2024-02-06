@@ -34,37 +34,13 @@ public class FixtureController {
 
     @GetMapping(path = "/find")
     public List<Fixture> getFixtures(
-            @RequestParam(required = false) String year,
             @RequestParam(required = false) String competition,
             @RequestParam(required = false) String stadium,
             @RequestParam(required = false) String team
     ) {
 
-
-
-        if (year != null && competition != null && stadium != null && team != null) {
-            return fixtureService.getFixturesByYearCompetitionStadiumTeam(year, competition, stadium, team);
-        }
-        else if (year != null && competition != null && stadium != null) {
-            return fixtureService.getFixturesByYearCompetitionStadium(year, competition, stadium);
-        }
-        else if (year != null && competition != null && team != null) {
-            return fixtureService.getFixturesByYearCompetitionTeam(year, competition, team);
-        }
-        else if (year != null && stadium != null && team != null) {
-            return fixtureService.getFixturesByYearStadiumTeam(year, stadium, team);
-        }
-        else if (competition != null && stadium != null && team != null) {
+        if (competition != null && stadium != null && team != null) {
             return fixtureService.getFixturesByCompetitionStadiumTeam(competition, stadium, team);
-        }
-        else if (year != null && competition != null) {
-            return fixtureService.getFixturesByYearCompetition(year, competition);
-        }
-        else if (year != null && stadium != null) {
-            return fixtureService.getFixturesByYearStadium(year, stadium);
-        }
-        else if (year != null && team != null) {
-            return fixtureService.getFixturesByYearTeam(year, team);
         }
         else if (competition != null && stadium != null) {
             return fixtureService.getFixturesByCompetitionStadium(competition, stadium);
@@ -74,9 +50,6 @@ public class FixtureController {
         }
         else if (stadium != null && team != null) {
             return fixtureService.getFixturesByStadiumTeam(stadium, team);
-        }
-        else if (year != null) {
-            return fixtureService.getFixturesByYear(year);
         }
         else if (competition != null) {
             return fixtureService.getFixturesByCompetition(competition);
