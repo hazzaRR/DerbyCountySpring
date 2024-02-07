@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@CrossOrigin(origins = {"http://localhost:3000", "thankful-water-0003d5a03.4.azurestaticapps.net",
-        "derby-county.harryredman.com"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://thankful-water-0003d5a03.4.azurestaticapps.net",
+        "https://derby-county.harryredman.com"})
 @Tag(name = "Fixture", description = "API to get all the upcoming Derby County fixture data")
 @RestController
 @RequestMapping("/api/fixtures")
