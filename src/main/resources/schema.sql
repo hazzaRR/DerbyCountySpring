@@ -1,4 +1,4 @@
-CREATE TABLE upcoming_fixtures (
+CREATE TABLE IF NOT EXISTS upcoming_fixtures (
                                    id SERIAL PRIMARY KEY,
                                    home_team VARCHAR(255),
                                    away_team VARCHAR(255),
@@ -9,7 +9,7 @@ CREATE TABLE upcoming_fixtures (
                                    CONSTRAINT UniqueFixture UNIQUE (home_team, away_team, kickoff, competition)
 );
 
-CREATE TABLE match_results (
+CREATE TABLE IF NOT EXISTS match_results (
                                id SERIAL PRIMARY KEY,
                                home_team VARCHAR(255),
                                away_team VARCHAR(255),
