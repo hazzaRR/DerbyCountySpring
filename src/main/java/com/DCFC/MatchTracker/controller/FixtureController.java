@@ -23,11 +23,6 @@ public class FixtureController {
         this.fixtureService = fixtureService;
     }
 
-    @GetMapping("/test")
-    public String testEndpoint() {
-        return "This is Derby County";
-    }
-
 
     @GetMapping("/")
     public List<Fixture> getFixtures() {
@@ -86,27 +81,27 @@ public class FixtureController {
     }
 
 
-    @DeleteMapping("/")
-    public void deleteAllFixtures() {
-        fixtureService.deleteFixtures();
-    }
-
-    @DeleteMapping(path = "{fixtureId}")
-    public void deleteFixture(@PathVariable int fixtureId) {
-        fixtureService.deleteFixture(fixtureId);
-    }
-
-    @PostMapping("/")
-    public void addFixture(@RequestBody FixtureDTO fixture) {
-        fixtureService.addFixture(fixture);
-    }
-
-    @PutMapping(path="{fixtureId}")
-    public void updateFixture(@PathVariable("fixtureId") int id, @RequestParam(required = false) String homeTeam,
-                              @RequestParam(required = false) String awayTeam, @RequestParam(required = false) String kickoff,
-                              @RequestParam(required = false) String competition, @RequestParam(required = false) String stadium,
-                              @RequestParam(required = false) String skySportsURL) {
-        fixtureService.updateFixture(id, homeTeam, awayTeam, kickoff, competition, stadium, skySportsURL);
-    }
+//    @DeleteMapping("/")
+//    public void deleteAllFixtures() {
+//        fixtureService.deleteFixtures();
+//    }
+//
+//    @DeleteMapping(path = "{fixtureId}")
+//    public void deleteFixture(@PathVariable int fixtureId) {
+//        fixtureService.deleteFixture(fixtureId);
+//    }
+//
+//    @PostMapping("/")
+//    public void addFixture(@RequestBody FixtureDTO fixture) {
+//        fixtureService.addFixture(fixture);
+//    }
+//
+//    @PutMapping(path="{fixtureId}")
+//    public void updateFixture(@PathVariable("fixtureId") int id, @RequestParam(required = false) String homeTeam,
+//                              @RequestParam(required = false) String awayTeam, @RequestParam(required = false) String kickoff,
+//                              @RequestParam(required = false) String competition, @RequestParam(required = false) String stadium,
+//                              @RequestParam(required = false) String skySportsURL) {
+//        fixtureService.updateFixture(id, homeTeam, awayTeam, kickoff, competition, stadium, skySportsURL);
+//    }
 }
 

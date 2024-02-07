@@ -25,7 +25,7 @@ public class MatchResultController {
     }
 
     @GetMapping("/find")
-public List<MatchResult> getMatchResults(@RequestParam(required = false) String season, @RequestParam(required = false) String competition,
+    public List<MatchResult> getMatchResults(@RequestParam(required = false) String season, @RequestParam(required = false) String competition,
                                          @RequestParam(required = false) String stadium, @RequestParam(required = false) String team,
                                          @RequestParam(required = false) String result) {
 
@@ -107,17 +107,11 @@ public List<MatchResult> getMatchResults(@RequestParam(required = false) String 
         return matchResultService.findCompetitionsPlayedIn();
     }
 
-    @PostMapping("/")
-    public void addMatchResult(@RequestBody MatchResultDTO matchResult) {
-        matchResultService.addMatchResult(matchResult);
-    }
-
     @GetMapping("/current-season")
     @ResponseBody
     public StringResponse getCurrentSeason() {
         return new StringResponse(matchResultService.getCurrentSeason());
     }
-
     @GetMapping("/record")
     @ResponseBody
     public List<RecordDTO> getRecord(@RequestParam(required = false) String team) {
@@ -126,4 +120,8 @@ public List<MatchResult> getMatchResults(@RequestParam(required = false) String 
         }
         return matchResultService.getRecord();
     }
+//    @PostMapping("/")
+//    public void addMatchResult(@RequestBody MatchResultDTO matchResult) {
+//        matchResultService.addMatchResult(matchResult);
+//    }
 }
