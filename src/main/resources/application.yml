@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: ${CUSTOMCONNSTR_profile}
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /
+    operations-sorter: method
