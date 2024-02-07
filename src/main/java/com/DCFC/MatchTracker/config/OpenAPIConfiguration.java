@@ -20,7 +20,7 @@ public class OpenAPIConfiguration {
         server1.setDescription("Development");
 
         Server server2 = new Server();
-        server2.setUrl("http://derbycounty.harryredman.com");
+        server2.setUrl("https://derby-api.azurewebsites.net/");
         server2.setDescription("Production");
 
         Contact myContact = new Contact();
@@ -32,6 +32,6 @@ public class OpenAPIConfiguration {
                 .version("1.0")
                 .description("This API exposes endpoints to retrieve all past and present Derby County match data and upcoming fixtures")
                 .contact(myContact);
-        return new OpenAPI().info(information).servers(List.of(server1));
+        return new OpenAPI().info(information).servers(List.of(server2));
     }
 }
