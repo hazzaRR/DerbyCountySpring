@@ -152,4 +152,8 @@ public class MatchResultService {
     public List<RecordDTO> getRecordByTeam(String team) {
         return matchResultRepository.findRecordByTeam(team);
     }
+
+    public MatchResult findLatestResult() {
+        return  matchResultRepository.findLatestResult();
+    }
 }

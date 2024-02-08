@@ -70,6 +70,12 @@ public class MatchResultController {
 
     }
 
+    @GetMapping("/latest-match")
+    public MatchResult getLatestResult() {
+            return matchResultService.findLatestResult();
+
+    }
+
     @GetMapping("/all-teams-played-against")
     List<String> teamsPlayedAgainst(@RequestParam(required = false) String season, @RequestParam(required = false) String competition) {
 
