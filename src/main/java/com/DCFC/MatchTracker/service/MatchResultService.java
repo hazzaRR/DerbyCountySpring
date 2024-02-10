@@ -47,7 +47,7 @@ public class MatchResultService {
     }
 
     public List<MatchResult> getMatchResultsBySeasonCompetitionTeam(String season, String competition, String team) {
-        return matchResultRepository.findBySeasonCompetitionTeam(season,competition, team);
+        return matchResultRepository.findBySeasonCompetitionTeamOrderByKickoffDesc(season,competition, team);
     }
 
     public List<MatchResult> getMatchResultsBySeasonStadiumTeam(String season, String stadium, String team) {
@@ -67,7 +67,7 @@ public class MatchResultService {
     }
 
     public List<MatchResult> getMatchResultsBySeasonTeam(String season, String team) {
-        return matchResultRepository.findBySeasonTeam(season,team);
+        return matchResultRepository.findBySeasonTeamOrderByKickoffDesc(season,team);
     }
 
     public List<MatchResult> getMatchResultsByCompetitionStadium(String competition, String stadium) {
@@ -83,7 +83,7 @@ public class MatchResultService {
     }
 
     public List<MatchResult> getMatchResultsBySeason(String season) {
-        return matchResultRepository.OrderByKickoffDesc(season);
+        return matchResultRepository.findBySeasonOrderByKickoffDesc(season);
     }
 
     public List<MatchResult> getMatchResultsByCompetition(String competition) {
@@ -95,11 +95,11 @@ public class MatchResultService {
     }
 
     public List<MatchResult> getMatchResultsByTeam(String team) {
-        return matchResultRepository.findByTeam(team);
+        return matchResultRepository.findByTeamOrderByKickoffDesc(team);
     }
 
     public List<MatchResult> getMatchResultsByResult(String result) {
-        return matchResultRepository.findByResult(result);
+        return matchResultRepository.findByResultOrderByKickoffDesc(result);
     }
 
     public List<MatchResult> getAllMatchResults() {

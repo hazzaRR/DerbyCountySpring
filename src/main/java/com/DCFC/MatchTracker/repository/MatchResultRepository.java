@@ -9,16 +9,16 @@ import java.util.List;
 
 public interface MatchResultRepository extends JpaRepository<MatchResult, Integer> {
 
-    List<MatchResult> findByResult(String result);
+    List<MatchResult> findByResultOrderByKickoffDesc(String result);
 
     @Query(value = "SELECT * FROM match_results WHERE home_team = ?1 OR away_team = ?1 ORDER BY kickoff DESC", nativeQuery = true)
-    List<MatchResult> findByTeam(String team);
+    List<MatchResult> findByTeamOrderByKickoffDesc(String team);
 
     List<MatchResult> findByStadiumOrderByKickoffDesc(String stadium);
 
     List<MatchResult> findByCompetitionOrderByKickoffDesc(String competition);
 
-    List<MatchResult> OrderByKickoffDesc(String season);
+    List<MatchResult> findBySeasonOrderByKickoffDesc(String season);
 
     @Query(value = "SELECT * FROM match_results WHERE stadium = ?1 AND (home_team = ?2 OR away_team = ?2) ORDER BY kickoff DESC", nativeQuery = true)
     List<MatchResult> findByStadiumTeamOrderByKickoffDesc(String stadium, String team);
@@ -32,7 +32,7 @@ public interface MatchResultRepository extends JpaRepository<MatchResult, Intege
     List<MatchResult> findByCompetitionStadiumOrderByKickoffDesc(String competition, String stadium);
 
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND (home_team = ?2 OR away_team = ?2) ORDER BY kickoff DESC", nativeQuery = true)
-    List<MatchResult> findBySeasonTeam(String season, String team);
+    List<MatchResult> findBySeasonTeamOrderByKickoffDesc(String season, String team);
 
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND stadium = ?2 ORDER BY kickoff DESC", nativeQuery = true)
     List<MatchResult> findBySeasonStadiumOrderByKickoffDesc(String season, String stadium);
@@ -47,7 +47,7 @@ public interface MatchResultRepository extends JpaRepository<MatchResult, Intege
     List<MatchResult> findBySeasonStadiumTeamOrderByKickoffDesc(String season, String stadium, String team);
 
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND competition = ?2 AND (home_team = ?3 OR away_team = ?3) ORDER BY kickoff DESC", nativeQuery = true)
-    List<MatchResult> findBySeasonCompetitionTeam(String season, String competition, String team);
+    List<MatchResult> findBySeasonCompetitionTeamOrderByKickoffDesc(String season, String competition, String team);
 
     @Query(value = "SELECT * FROM match_results WHERE season = ?1 AND competition = ?2 AND stadium = ?3 ORDER BY kickoff DESC", nativeQuery = true)
     List<MatchResult> findBySeasonCompetitionStadiumOrderByKickoffDesc(String season, String competition, String stadium);
