@@ -4,11 +4,11 @@ import com.DCFC.MatchTracker.dto.MatchResultDTO;
 import com.DCFC.MatchTracker.dto.RecordDTO;
 import com.DCFC.MatchTracker.model.MatchResult;
 import com.DCFC.MatchTracker.repository.MatchResultRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class MatchResultService {
@@ -35,15 +35,15 @@ public class MatchResultService {
     }
 
     public List<MatchResult> getMatchResultsBySeasonCompetitionStadiumTeamResult(String season, String competition, String stadium, String team, String result) {
-        return matchResultRepository.findBySeasonCompetitionStadiumTeamResult(season,competition, stadium, team, result);
+        return matchResultRepository.findBySeasonCompetitionStadiumTeamResultOrderByKickoffDesc(season,competition, stadium, team, result);
     }
 
     public List<MatchResult> getMatchResultsBySeasonCompetitionStadiumTeam(String season, String competition, String stadium, String team) {
-        return matchResultRepository.findBySeasonCompetitionStadiumTeam(season,competition, stadium, team);
+        return matchResultRepository.findBySeasonCompetitionStadiumTeamOrderByKickoffDesc(season,competition, stadium, team);
     }
 
     public List<MatchResult> getMatchResultsBySeasonCompetitionStadium(String season, String competition, String stadium) {
-        return matchResultRepository.findBySeasonCompetitionStadium(season,competition, stadium);
+        return matchResultRepository.findBySeasonCompetitionStadiumOrderByKickoffDesc(season,competition, stadium);
     }
 
     public List<MatchResult> getMatchResultsBySeasonCompetitionTeam(String season, String competition, String team) {
@@ -51,19 +51,19 @@ public class MatchResultService {
     }
 
     public List<MatchResult> getMatchResultsBySeasonStadiumTeam(String season, String stadium, String team) {
-        return matchResultRepository.findBySeasonStadiumTeam(season,stadium, team);
+        return matchResultRepository.findBySeasonStadiumTeamOrderByKickoffDesc(season,stadium, team);
     }
 
     public List<MatchResult> getMatchResultsByCompetitionStadiumTeam(String competition, String stadium, String team) {
-        return matchResultRepository.findByCompetitionStadiumTeam(competition,stadium, team);
+        return matchResultRepository.findByCompetitionStadiumTeamOrderByKickoffDesc(competition,stadium, team);
     }
 
     public List<MatchResult> getMatchResultsBySeasonCompetition(String season, String competition) {
-        return matchResultRepository.findBySeasonCompetition(season,competition);
+        return matchResultRepository.findBySeasonCompetitionOrderByKickoffDesc(season,competition);
     }
 
     public List<MatchResult> getMatchResultsBySeasonStadium(String season, String stadium) {
-        return matchResultRepository.findBySeasonStadium(season,stadium);
+        return matchResultRepository.findBySeasonStadiumOrderByKickoffDesc(season,stadium);
     }
 
     public List<MatchResult> getMatchResultsBySeasonTeam(String season, String team) {
@@ -71,27 +71,27 @@ public class MatchResultService {
     }
 
     public List<MatchResult> getMatchResultsByCompetitionStadium(String competition, String stadium) {
-        return matchResultRepository.findByCompetitionStadium(competition,stadium);
+        return matchResultRepository.findByCompetitionStadiumOrderByKickoffDesc(competition,stadium);
     }
 
     public List<MatchResult> getMatchResultsByCompetitionTeam(String competition, String team) {
-        return matchResultRepository.findByCompetitionTeam(competition,team);
+        return matchResultRepository.findByCompetitionTeamOrderByKickoffDesc(competition,team);
     }
 
     public List<MatchResult> getMatchResultsByStadiumTeam(String stadium, String team) {
-        return matchResultRepository.findByStadiumTeam(stadium,team);
+        return matchResultRepository.findByStadiumTeamOrderByKickoffDesc(stadium,team);
     }
 
     public List<MatchResult> getMatchResultsBySeason(String season) {
-        return matchResultRepository.findBySeason(season);
+        return matchResultRepository.OrderByKickoffDesc(season);
     }
 
     public List<MatchResult> getMatchResultsByCompetition(String competition) {
-        return matchResultRepository.findByCompetition(competition);
+        return matchResultRepository.findByCompetitionOrderByKickoffDesc(competition);
     }
 
     public List<MatchResult> getMatchResultsByStadium(String stadium) {
-        return matchResultRepository.findByStadium(stadium);
+        return matchResultRepository.findByStadiumOrderByKickoffDesc(stadium);
     }
 
     public List<MatchResult> getMatchResultsByTeam(String team) {
@@ -103,7 +103,7 @@ public class MatchResultService {
     }
 
     public List<MatchResult> getAllMatchResults() {
-        return matchResultRepository.findAll();
+        return matchResultRepository.findAll(Sort.by(Sort.Direction.DESC, "kickoff"));
     }
 
     public List<String> findTeamsPlayedAgainst() {

@@ -1,7 +1,6 @@
 package com.DCFC.MatchTracker.repository;
 
 
-import com.DCFC.MatchTracker.model.Fixture;
 import com.DCFC.MatchTracker.model.MatchResult;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -122,7 +121,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findByStadium("Pride Park");
+        List<MatchResult> result = underTest.findByStadiumOrderByKickoffDesc("Pride Park");
 
         //then
         assertThat(result).contains(match1);
@@ -139,7 +138,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findByStadium(stadium);
+        List<MatchResult> result = underTest.findByStadiumOrderByKickoffDesc(stadium);
 
         //then
 
@@ -162,7 +161,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findByCompetition("Championship");
+        List<MatchResult> result = underTest.findByCompetitionOrderByKickoffDesc("Championship");
 
         //then
         assertThat(result).containsAll(matches);
@@ -178,7 +177,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findByCompetition(competition);
+        List<MatchResult> result = underTest.findByCompetitionOrderByKickoffDesc(competition);
 
         //then
 
@@ -201,7 +200,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findBySeason("2023-24");
+        List<MatchResult> result = underTest.OrderByKickoffDesc("2023-24");
 
         //then
         assertThat(result).containsAll(matches);
@@ -217,7 +216,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findBySeason(season);
+        List<MatchResult> result = underTest.OrderByKickoffDesc(season);
 
         //then
 
@@ -240,7 +239,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findByStadiumTeam("Pride Park", "Norwich City");
+        List<MatchResult> result = underTest.findByStadiumTeamOrderByKickoffDesc("Pride Park", "Norwich City");
 
 
         //then
@@ -258,7 +257,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findByStadiumTeam(stadium, team);
+        List<MatchResult> result = underTest.findByStadiumTeamOrderByKickoffDesc(stadium, team);
 
         //then
 
@@ -281,7 +280,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findByCompetitionTeam("Championship", "Norwich City");
+        List<MatchResult> result = underTest.findByCompetitionTeamOrderByKickoffDesc("Championship", "Norwich City");
 
 
         //then
@@ -299,7 +298,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findByCompetitionTeam(comp, team);
+        List<MatchResult> result = underTest.findByCompetitionTeamOrderByKickoffDesc(comp, team);
 
         //then
 
@@ -323,7 +322,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findByCompetitionStadium("Championship", "Pride Park");
+        List<MatchResult> result = underTest.findByCompetitionStadiumOrderByKickoffDesc("Championship", "Pride Park");
 
 
         //then
@@ -341,7 +340,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findByCompetitionStadium(comp, stadium);
+        List<MatchResult> result = underTest.findByCompetitionStadiumOrderByKickoffDesc(comp, stadium);
 
         //then
 
@@ -405,7 +404,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findBySeasonStadium("2023-24", "Pride Park");
+        List<MatchResult> result = underTest.findBySeasonStadiumOrderByKickoffDesc("2023-24", "Pride Park");
 
 
         //then
@@ -423,7 +422,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findBySeasonStadium(season, stadium);
+        List<MatchResult> result = underTest.findBySeasonStadiumOrderByKickoffDesc(season, stadium);
 
         //then
 
@@ -446,7 +445,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findBySeasonCompetition("2023-24", "Championship");
+        List<MatchResult> result = underTest.findBySeasonCompetitionOrderByKickoffDesc("2023-24", "Championship");
 
 
         //then
@@ -463,7 +462,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findBySeasonStadium(season, stadium);
+        List<MatchResult> result = underTest.findBySeasonStadiumOrderByKickoffDesc(season, stadium);
 
         //then
 
@@ -486,7 +485,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findByCompetitionStadiumTeam("Championship", "Pride Park", "Norwich City");
+        List<MatchResult> result = underTest.findByCompetitionStadiumTeamOrderByKickoffDesc("Championship", "Pride Park", "Norwich City");
 
 
         //then
@@ -505,7 +504,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findByCompetitionStadiumTeam(competition, stadium, team);
+        List<MatchResult> result = underTest.findByCompetitionStadiumTeamOrderByKickoffDesc(competition, stadium, team);
 
         //then
 
@@ -528,7 +527,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findBySeasonStadiumTeam("2023-24", "Pride Park", "Norwich City");
+        List<MatchResult> result = underTest.findBySeasonStadiumTeamOrderByKickoffDesc("2023-24", "Pride Park", "Norwich City");
 
 
         //then
@@ -547,7 +546,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findBySeasonStadiumTeam(season, stadium, team);
+        List<MatchResult> result = underTest.findBySeasonStadiumTeamOrderByKickoffDesc(season, stadium, team);
 
         //then
 
@@ -612,7 +611,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findBySeasonCompetitionStadium("2023-24", "Championship", "Pride Park");
+        List<MatchResult> result = underTest.findBySeasonCompetitionStadiumOrderByKickoffDesc("2023-24", "Championship", "Pride Park");
 
 
         //then
@@ -631,7 +630,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findBySeasonCompetitionStadium(season, comp, stadium);
+        List<MatchResult> result = underTest.findBySeasonCompetitionStadiumOrderByKickoffDesc(season, comp, stadium);
 
         //then
 
@@ -654,7 +653,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findBySeasonCompetitionStadiumTeam("2023-24", "Championship", "Pride Park", "Norwich City");
+        List<MatchResult> result = underTest.findBySeasonCompetitionStadiumTeamOrderByKickoffDesc("2023-24", "Championship", "Pride Park", "Norwich City");
 
 
         //then
@@ -674,7 +673,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findBySeasonCompetitionStadiumTeam(season, comp, stadium, team);
+        List<MatchResult> result = underTest.findBySeasonCompetitionStadiumTeamOrderByKickoffDesc(season, comp, stadium, team);
 
         //then
 
@@ -697,7 +696,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.findBySeasonCompetitionStadiumTeamResult("2023-24", "Championship", "Pride Park", "Norwich City", "W");
+        List<MatchResult> result = underTest.findBySeasonCompetitionStadiumTeamResultOrderByKickoffDesc("2023-24", "Championship", "Pride Park", "Norwich City", "W");
 
 
         //then
@@ -718,7 +717,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.findBySeasonCompetitionStadiumTeamResult(season, comp, stadium, team, teamResult);
+        List<MatchResult> result = underTest.findBySeasonCompetitionStadiumTeamResultOrderByKickoffDesc(season, comp, stadium, team, teamResult);
 
         //then
 
