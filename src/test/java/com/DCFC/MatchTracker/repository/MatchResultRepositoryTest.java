@@ -200,7 +200,7 @@ public class MatchResultRepositoryTest {
         underTest.saveAll(matches);
         //when
 
-        List<MatchResult> result = underTest.OrderByKickoffDesc("2023-24");
+        List<MatchResult> result = underTest.findBySeasonOrderByKickoffDesc("2023-24");
 
         //then
         assertThat(result).containsAll(matches);
@@ -216,7 +216,7 @@ public class MatchResultRepositoryTest {
 
         //when
 
-        List<MatchResult> result = underTest.OrderByKickoffDesc(season);
+        List<MatchResult> result = underTest.findBySeasonOrderByKickoffDesc(season);
 
         //then
 
