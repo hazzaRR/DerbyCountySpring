@@ -23,3 +23,16 @@ CREATE TABLE IF NOT EXISTS match_results (
                                penalties_score VARCHAR(255),
                                CONSTRAINT UniqueMatchResult UNIQUE (home_team, away_team, kickoff, competition)
 );
+
+CREATE TABLE IF NOT EXISTS league_table (
+                                            team VARCHAR(255) PRIMARY KEY,
+                                            league_position INTEGER UNIQUE,
+                                            games_played INTEGER,
+                                            wins INTEGER,
+                                            draws INTEGER,
+                                            losses INTEGER,
+                                            goals_for INTEGER,
+                                            goals_against INTEGER,
+                                            goal_difference INTEGER,
+                                            points INTEGER
+)
