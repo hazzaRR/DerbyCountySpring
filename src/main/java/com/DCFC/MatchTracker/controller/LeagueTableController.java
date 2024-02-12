@@ -1,6 +1,8 @@
 package com.DCFC.MatchTracker.controller;
 
 
+import com.DCFC.MatchTracker.model.LeagueTable;
+import com.DCFC.MatchTracker.service.LeagueTableService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/league-table")
 public class LeagueTableController {
+
+
+    private final LeagueTableService leagueTableService;
+
+
+    public LeagueTableController(LeagueTableService leagueTableService) {
+        this.leagueTableService = leagueTableService;
+    }
+
 
 
 }
