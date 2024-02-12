@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface LeagueTableRepository extends JpaRepository<LeagueTable, String> {
 
-    Optional<LeagueTable> findLeagueTableByLeaguePosition();
+    Optional<LeagueTable> findLeagueTableByLeaguePosition(int position);
 }

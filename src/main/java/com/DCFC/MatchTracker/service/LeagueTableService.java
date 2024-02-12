@@ -25,7 +25,7 @@ public class LeagueTableService {
         return leagueTableRepository.findById("Derby County");
     }
 
-    public Optional<LeagueTable> getLeaguePosition() {
-      return leagueTableRepository.findLeagueTableByLeaguePosition();
+    public Optional<LeagueTable> getLeaguePosition(int position) {
+      return leagueTableRepository.findLeagueTableByLeaguePosition(position);
     };
 }
