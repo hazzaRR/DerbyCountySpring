@@ -4,12 +4,10 @@ package com.DCFC.MatchTracker.controller;
 import com.DCFC.MatchTracker.model.LeagueTable;
 import com.DCFC.MatchTracker.service.LeagueTableService;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @CrossOrigin(origins = {"http://localhost:3000", "https://thankful-water-0003d5a03.4.azurestaticapps.net",
@@ -32,6 +30,14 @@ public class LeagueTableController {
         return leagueTableService.getLeagueTable();
     }
 
+    @GetMapping("/derby-position")
+    public Optional<LeagueTable> getDerbyLeaguePosition() {
+        return leagueTableService.getDerbyPosition();
+    }
 
+    @GetMapping("/position/{id}")
+    public Optional<LeagueTable> getTeamInLeaguePosition(@PathVariable("id") int id) {
+        return leagueTableService.getLeaguePosition(id);
+    }
 
 }
